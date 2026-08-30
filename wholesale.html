@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wholesale — TowerStream Interactive</title>
+  <meta name="description" content="Partner with TowerStream Interactive. Wholesale program for buyers and retailers — competitive MOQ, fast lead times, custom packaging across three brands." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #FAFAF8;
+      color: #1A1A1A;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ===== DESIGN TOKENS ===== */
+    :root {
+      --bg:     #FAFAF8;
+      --ink:    #1A1A1A;
+      --stone:  #8C8070;
+      --brass:  #B8936A;
+      --deep:   #111111;
+      --border: rgba(26,26,26,0.12);
+      --max:    1200px;
+      --px:     clamp(24px, 5vw, 80px);
+    }
+
+    /* ===== SCROLL FADE-IN ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.45s; }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--px);
+      height: 68px;
+      background: rgba(250,250,248,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nav-links a {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--brass); }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 4px; cursor: pointer; }
+    .dropdown-arrow {
+      display: inline-block;
+      width: 0; height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid currentColor;
+      transition: transform 0.2s;
+    }
+    .nav-dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      min-width: 160px;
+      padding: 8px 0;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    }
+    .nav-dropdown:hover .dropdown-menu { display: block; }
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: background 0.15s, color 0.15s;
+    }
+    .dropdown-menu a:hover { background: #F5F3EF; color: var(--brass); }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--ink);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px; left: 0; right: 0;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 24px var(--px) 32px;
+      z-index: 99;
+      flex-direction: column;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      display: block;
+      padding: 14px 0;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+      color: var(--ink);
+    }
+    .mobile-menu a.sub { padding-left: 20px; color: var(--stone); font-size: 0.82rem; }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    /* ===== HERO ===== */
+    #hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      background: var(--deep);
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://static.wixstatic.com/media/8cc8c8_9960a9416cc645e69f7c874e3ec49698~mv2.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.35;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(17,17,17,0.88) 0%, rgba(17,17,17,0.65) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--px);
+      padding-top: 68px;
+    }
+    .hero-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 28px;
+    }
+    .hero-h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 6vw, 6rem);
+      font-weight: 500;
+      line-height: 1.06;
+      color: #FAFAF8;
+      max-width: 700px;
+      margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+      font-weight: 300;
+      color: rgba(250,250,248,0.65);
+      max-width: 480px;
+      line-height: 1.65;
+      margin-bottom: 48px;
+      letter-spacing: 0.06em;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 52px;
+      padding: 0 36px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.22s, color 0.22s, border-color 0.22s, transform 0.15s;
+      border: 1.5px solid transparent;
+    }
+    .btn:active { transform: scale(0.98); }
+    .btn-primary { background: var(--brass); color: #fff; border-color: var(--brass); }
+    .btn-primary:hover { background: #a07c58; border-color: #a07c58; }
+    .btn-outline { background: transparent; color: #FAFAF8; border-color: rgba(250,250,248,0.5); }
+    .btn-outline:hover { border-color: #FAFAF8; background: rgba(250,250,248,0.08); }
+
+    /* ===== SECTION SHARED ===== */
+    section { width: 100%; }
+    .section-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--px); }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 16px;
+    }
+    .section-h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      font-weight: 500;
+      line-height: 1.18;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .divider {
+      width: 48px;
+      height: 1.5px;
+      background: var(--brass);
+      margin-bottom: 32px;
+    }
+
+    /* ===== WHY PARTNER ===== */
+    #why {
+      padding: 100px 0 96px;
+      background: var(--bg);
+    }
+    .why-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .why-header .section-label { display: block; margin-bottom: 16px; }
+    .why-header .divider { margin: 0 auto 0; }
+    .why-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+    }
+    .why-card {
+      background: var(--bg);
+      padding: 52px 40px;
+    }
+    .why-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .why-icon svg { width: 100%; height: 100%; }
+    .why-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+    .why-card-body {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--stone);
+    }
+
+    /* ===== OUR BRANDS ===== */
+    #our-brands {
+      padding: 100px 0 96px;
+      background: #161210;
+    }
+    #our-brands .section-label { color: var(--brass); }
+    #our-brands .section-h2 { color: #FAFAF8; }
+    .brand-cards-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 52px;
+    }
+    .brand-card-simple {
+      background: #1A1410;
+      border: 1px solid rgba(184,147,106,0.18);
+      padding: 48px 36px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: border-color 0.3s;
+    }
+    .brand-card-simple:hover { border-color: rgba(184,147,106,0.5); }
+    .brand-placeholder {
+      width: 100%;
+      height: 180px;
+      background: #111;
+      border: 1px solid rgba(184,147,106,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+    .brand-placeholder-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: rgba(184,147,106,0.6);
+    }
+    .brand-card-simple h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #FAFAF8;
+    }
+    .brand-card-simple p {
+      font-size: 0.88rem;
+      font-weight: 300;
+      line-height: 1.65;
+      color: rgba(250,248,244,0.58);
+    }
+    .brand-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-top: auto;
+      transition: gap 0.2s;
+    }
+    .brand-card-link:hover { gap: 14px; }
+    .brand-card-link .arr {
+      display: inline-block;
+      width: 14px;
+      height: 1px;
+      background: currentColor;
+      position: relative;
+    }
+    .brand-card-link .arr::after {
+      content: '';
+      position: absolute;
+      right: 0; top: -3px;
+      border-right: 4px solid currentColor;
+      border-top: 3px solid transparent;
+      border-bottom: 3px solid transparent;
+    }
+
+    /* ===== CATALOG ===== */
+    #catalog {
+      padding: 100px 0 96px;
+      background: var(--bg);
+    }
+    .catalog-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .catalog-left {}
+    .catalog-desc {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--stone);
+      margin-bottom: 32px;
+    }
+    .catalog-fields {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+    .catalog-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brass);
+      border: 1px solid rgba(184,147,106,0.35);
+      padding: 8px 16px;
+      border-radius: 2px;
+    }
+    .catalog-right {
+      background: #161210;
+      border: 1px solid rgba(184,147,106,0.18);
+      padding: 52px 44px;
+    }
+    .catalog-right h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #FAFAF8;
+      margin-bottom: 16px;
+    }
+    .catalog-right p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(250,248,244,0.58);
+      margin-bottom: 36px;
+    }
+    .btn-brass-full {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 52px;
+      padding: 0 36px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      background: var(--brass);
+      color: #fff;
+      border: 1.5px solid var(--brass);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-brass-full:hover { background: #a07c58; border-color: #a07c58; }
+
+    /* ===== WHOLESALE TERMS ===== */
+    #terms {
+      padding: 100px 0 96px;
+      background: #161210;
+    }
+    #terms .section-label { color: var(--brass); }
+    #terms .section-h2 { color: #FAFAF8; }
+    .terms-list {
+      margin-top: 52px;
+      border-top: 1px solid rgba(184,147,106,0.18);
+    }
+    .terms-row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      padding: 32px 0;
+      border-bottom: 1px solid rgba(184,147,106,0.12);
+      align-items: baseline;
+    }
+    .terms-key {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brass);
+    }
+    .terms-val {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(250,248,244,0.68);
+    }
+
+    /* ===== VIDEO SECTION ===== */
+    #supply-video {
+      padding: 100px 0 96px;
+      background: var(--bg);
+    }
+    .video-header {
+      margin-bottom: 52px;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .video-placeholder {
+      background: #161210;
+      border: 1px solid rgba(26,26,26,0.1);
+      aspect-ratio: 16 / 9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+    .video-play-icon {
+      width: 56px;
+      height: 56px;
+      border: 1.5px solid rgba(184,147,106,0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .video-play-icon svg { width: 20px; height: 20px; fill: var(--brass); margin-left: 3px; }
+    .video-caption {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(250,248,244,0.4);
+    }
+    .video-note {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--stone);
+      margin-top: 24px;
+      font-style: italic;
+    }
+
+    /* ===== CONTACT FORM ===== */
+    #contact {
+      padding: 100px 0 120px;
+      background: var(--deep);
+      color: #FAFAF8;
+    }
+    #contact .section-label { color: var(--brass); }
+    #contact .section-h2 { color: #FAFAF8; }
+    .contact-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(250,250,248,0.6);
+      margin-bottom: 56px;
+      max-width: 460px;
+      line-height: 1.65;
+    }
+    .contact-form {
+      max-width: 680px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .form-field label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(250,250,248,0.5);
+    }
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: #FAFAF8;
+      background: rgba(250,250,248,0.05);
+      border: 1px solid rgba(250,250,248,0.14);
+      padding: 14px 16px;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-field input::placeholder,
+    .form-field textarea::placeholder { color: rgba(250,250,248,0.25); }
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus { border-color: var(--brass); }
+    .form-field select { cursor: pointer; appearance: none; }
+    .form-field select option { background: #1A1A1A; color: #FAFAF8; }
+    .form-field textarea { min-height: 140px; resize: vertical; }
+    .btn-submit {
+      height: 52px;
+      padding: 0 48px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      background: var(--brass);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-submit:hover { background: #a07c58; }
+    .btn-submit:active { transform: scale(0.98); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0B0B0B;
+      color: rgba(250,250,248,0.55);
+      padding: 72px var(--px) 32px;
+    }
+    .footer-inner { max-width: var(--max); margin: 0 auto; }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 2fr;
+      gap: 48px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid rgba(250,250,248,0.08);
+    }
+    .footer-col h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #FAFAF8;
+      margin-bottom: 6px;
+    }
+    .footer-col .footer-entity { font-size: 0.78rem; color: rgba(250,250,248,0.35); margin-bottom: 20px; }
+    .footer-col h4 {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(250,250,248,0.4);
+      margin-bottom: 16px;
+    }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(250,250,248,0.55);
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--brass); }
+    .footer-contact-detail {
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(250,250,248,0.55);
+    }
+    .footer-contact-detail a { color: rgba(250,250,248,0.55); transition: color 0.2s; }
+    .footer-contact-detail a:hover { color: var(--brass); }
+    .footer-social { display: flex; gap: 12px; margin-top: 20px; }
+    .social-icon {
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(250,250,248,0.15);
+      border-radius: 2px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .social-icon:hover { border-color: var(--brass); background: rgba(184,147,106,0.12); }
+    .social-icon svg { width: 15px; height: 15px; fill: rgba(250,250,248,0.55); transition: fill 0.2s; }
+    .social-icon:hover svg { fill: var(--brass); }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 28px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy { font-size: 0.75rem; color: rgba(250,250,248,0.28); }
+    .footer-bottom-links { display: flex; gap: 24px; }
+    .footer-bottom-links a {
+      font-size: 0.75rem;
+      color: rgba(250,250,248,0.28);
+      transition: color 0.2s;
+    }
+    .footer-bottom-links a:hover { color: var(--brass); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .why-cards { grid-template-columns: 1fr; }
+      .brand-cards-row { grid-template-columns: 1fr; gap: 16px; }
+      .catalog-inner { grid-template-columns: 1fr; gap: 52px; }
+      .video-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .hero-h1 { font-size: clamp(2.4rem, 9vw, 3.5rem); }
+      .hero-ctas { flex-direction: column; max-width: 240px; }
+      .btn { width: 100%; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .terms-row { grid-template-columns: 1fr; gap: 8px; }
+      .why-cards { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .footer-social { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav>
+    <a href="index.html" class="nav-logo">TWR STREAM</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li class="nav-dropdown">
+        <a href="index.html#brands">Brands <span class="dropdown-arrow"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="tetchy.html">TETCHY</a></li>
+          <li><a href="loopboss.html">LOOPBOSS</a></li>
+          <li><a href="shainewi.html">ShaiNewi</a></li>
+        </ul>
+      </li>
+      <li><a href="wholesale.html" class="active">Wholesale</a></li>
+      <li><a href="b2b.html">B2B Partners</a></li>
+      <li><a href="creators.html">Creators</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#about" onclick="closeMobile()">About</a>
+    <a href="index.html#brands" onclick="closeMobile()">Brands</a>
+    <a href="tetchy.html" class="sub">— TETCHY</a>
+    <a href="loopboss.html" class="sub">— LOOPBOSS</a>
+    <a href="shainewi.html" class="sub">— ShaiNewi</a>
+    <a href="wholesale.html" onclick="closeMobile()">Wholesale</a>
+    <a href="b2b.html" onclick="closeMobile()">B2B Partners</a>
+    <a href="creators.html" onclick="closeMobile()">Creators</a>
+    <a href="index.html#contact" onclick="closeMobile()">Contact</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="hero-label reveal">TowerStream Interactive — Wholesale</p>
+      <h1 class="hero-h1 reveal reveal-delay-1">Partner<br>With Us.</h1>
+      <p class="hero-sub reveal reveal-delay-2">Wholesale Program &nbsp;·&nbsp; Quality Products &nbsp;·&nbsp; Reliable Supply Chain</p>
+      <div class="hero-ctas reveal reveal-delay-3">
+        <a href="#contact" class="btn btn-primary">Request a Quote</a>
+        <a href="#catalog" class="btn btn-outline">Download Catalog</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY PARTNER ===== -->
+  <section id="why">
+    <div class="section-inner">
+      <div class="why-header">
+        <span class="section-label reveal">Why Work With Us</span>
+        <h2 class="section-h2 reveal reveal-delay-1">Built for trade.<br>Ready to scale.</h2>
+        <div class="divider reveal reveal-delay-2"></div>
+      </div>
+      <div class="why-cards">
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="12" width="40" height="28" rx="2" stroke="#B8936A" stroke-width="1.5"/>
+              <path d="M16 12V10a8 8 0 0116 0v2" stroke="#B8936A" stroke-width="1.5"/>
+              <circle cx="24" cy="26" r="5" stroke="#B8936A" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3 class="why-card-title">Competitive MOQ</h3>
+          <p class="why-card-body">Low minimums to get started, with volume pricing that scales as your order grows. We work with buyers at every stage, from first-time importers to established retail chains.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="18" stroke="#B8936A" stroke-width="1.5"/>
+              <path d="M24 12v12l8 5" stroke="#B8936A" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="why-card-title">Fast Lead Time</h3>
+          <p class="why-card-body">Direct factory access in Jiangsu and Zhejiang means shorter lead times and no third-party delays. Most standard orders are ready within 25 to 45 days of confirmation.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="8" width="36" height="28" rx="2" stroke="#B8936A" stroke-width="1.5"/>
+              <path d="M6 20h36" stroke="#B8936A" stroke-width="1.5"/>
+              <path d="M18 8v12" stroke="#B8936A" stroke-width="1.5"/>
+              <path d="M30 8v12" stroke="#B8936A" stroke-width="1.5"/>
+              <path d="M12 30h6M26 30h10" stroke="#B8936A" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="why-card-title">Custom Packaging</h3>
+          <p class="why-card-body">Private label and custom packaging available across all three brands. We handle dielines, print specs, and compliance labeling so your product arrives shelf-ready.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OUR BRANDS ===== -->
+  <section id="our-brands">
+    <div class="section-inner">
+      <p class="section-label reveal">Our Portfolio</p>
+      <h2 class="section-h2 reveal reveal-delay-1">Three brands.<br>One trade relationship.</h2>
+      <div class="divider reveal reveal-delay-2"></div>
+      <div class="brand-cards-row">
+        <div class="brand-card-simple reveal">
+          <div class="brand-placeholder"><span class="brand-placeholder-text">TETCHY.</span></div>
+          <h3>TETCHY</h3>
+          <p>Canvas totes, bags, and carry accessories. Built for everyday use and designed for the US and EU market. Durable construction, clean aesthetics.</p>
+          <a href="tetchy.html" class="brand-card-link">View Brand <span class="arr"></span></a>
+        </div>
+        <div class="brand-card-simple reveal reveal-delay-1">
+          <div class="brand-placeholder"><span class="brand-placeholder-text">LOOPBOSS®</span></div>
+          <h3>LOOPBOSS</h3>
+          <p>Home essentials and everyday appliances. Practical products with broad appeal, designed for gifting and repeat purchase. Strong TikTok Shop performance.</p>
+          <a href="loopboss.html" class="brand-card-link">View Brand <span class="arr"></span></a>
+        </div>
+        <div class="brand-card-simple reveal reveal-delay-2">
+          <div class="brand-placeholder"><span class="brand-placeholder-text">ShaiNewi</span></div>
+          <h3>ShaiNewi</h3>
+          <p>Jewelry and fashion accessories. Refined pieces for personal expression. Designed for boutique and online retail, with strong social and creator presence.</p>
+          <a href="shainewi.html" class="brand-card-link">View Brand <span class="arr"></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCT CATALOG ===== -->
+  <section id="catalog">
+    <div class="catalog-inner">
+      <div class="catalog-left reveal">
+        <p class="section-label">Product Catalog</p>
+        <h2 class="section-h2">Request our full<br>product catalog.</h2>
+        <div class="divider"></div>
+        <p class="catalog-desc">Our catalog covers all active SKUs across TETCHY, LOOPBOSS, and ShaiNewi. Each entry includes the information you need to make a buying decision without back-and-forth.</p>
+        <div class="catalog-fields">
+          <span class="catalog-tag">Product Name</span>
+          <span class="catalog-tag">Material</span>
+          <span class="catalog-tag">MOQ</span>
+          <span class="catalog-tag">Packaging</span>
+          <span class="catalog-tag">Lead Time</span>
+          <span class="catalog-tag">Customization</span>
+        </div>
+      </div>
+      <div class="catalog-right reveal reveal-delay-2">
+        <h3>Get the Catalog</h3>
+        <p>Send us a quick email and we'll reply with the full product catalog within one business day. No sign-up, no form — just a direct line.</p>
+        <a href="mailto:jaymen@twrstream.com?subject=Product%20Catalog%20Request" class="btn-brass-full">Request Catalog</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHOLESALE TERMS ===== -->
+  <section id="terms">
+    <div class="section-inner">
+      <p class="section-label reveal">Terms at a Glance</p>
+      <h2 class="section-h2 reveal reveal-delay-1">Wholesale terms.</h2>
+      <div class="divider reveal reveal-delay-2"></div>
+      <div class="terms-list reveal reveal-delay-3">
+        <div class="terms-row">
+          <span class="terms-key">MOQ</span>
+          <span class="terms-val">Minimum order quantities vary by product. Most SKUs start at 50 units. Volume pricing begins at 200 units. Contact us for exact figures per item.</span>
+        </div>
+        <div class="terms-row">
+          <span class="terms-key">Payment Terms</span>
+          <span class="terms-val">50% deposit on order confirmation, 50% prior to shipment. Wire transfer (TT), PayPal, and USD / EUR / GBP accepted. Net 30 available for established accounts.</span>
+        </div>
+        <div class="terms-row">
+          <span class="terms-key">Lead Time</span>
+          <span class="terms-val">Standard stock: 25 to 35 days. Custom packaging or private label: 35 to 50 days. Rush orders subject to factory availability — ask at time of inquiry.</span>
+        </div>
+        <div class="terms-row">
+          <span class="terms-key">Shipping</span>
+          <span class="terms-val">FOB Ningbo or Shanghai. Air freight available on request. We coordinate sea and air freight and can arrange door-to-door on select orders.</span>
+        </div>
+        <div class="terms-row">
+          <span class="terms-key">Sample Policy</span>
+          <span class="terms-val">Samples available for all active products. Sample cost deducted from first bulk order. Lead time for samples: 5 to 10 business days.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VIDEO ===== -->
+  <section id="supply-video">
+    <div class="section-inner">
+      <div class="video-header">
+        <p class="section-label reveal">Behind the Product</p>
+        <h2 class="section-h2 reveal reveal-delay-1">Inside our supply chain.</h2>
+        <div class="divider reveal reveal-delay-2"></div>
+      </div>
+      <div class="video-grid reveal reveal-delay-2">
+        <div class="video-placeholder">
+          <div class="video-play-icon">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <span class="video-caption">Factory Tour Video</span>
+        </div>
+        <div class="video-placeholder">
+          <div class="video-play-icon">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <span class="video-caption">Packaging &amp; Shipping Video</span>
+        </div>
+      </div>
+      <p class="video-note reveal reveal-delay-3">Video content coming soon. Contact us directly for a factory walkthrough or product inspection report.</p>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
+    <div class="section-inner">
+      <p class="section-label reveal">Get in Touch</p>
+      <h2 class="section-h2 reveal reveal-delay-1">Send us an inquiry.</h2>
+      <p class="contact-sub reveal reveal-delay-2">We respond to all wholesale inquiries within 2 business days.</p>
+      <form class="contact-form reveal reveal-delay-3" action="mailto:jaymen@twrstream.com" method="post" enctype="text/plain">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="w-name">Name</label>
+            <input type="text" id="w-name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form-field">
+            <label for="w-company">Company</label>
+            <input type="text" id="w-company" name="company" placeholder="Your company name" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="w-email">Email</label>
+            <input type="email" id="w-email" name="email" placeholder="Your email address" required />
+          </div>
+          <div class="form-field">
+            <label for="w-country">Country</label>
+            <input type="text" id="w-country" name="country" placeholder="Your country" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="w-message">Message</label>
+          <textarea id="w-message" name="message" placeholder="Tell us what you're looking for — which brands, approximate volumes, and any product requirements."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Send Inquiry</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-col">
+          <h3>TWR STREAM</h3>
+          <p class="footer-entity">TowerStream Interactive, LLC</p>
+          <p class="footer-contact-detail">
+            <a href="mailto:jaymen@twrstream.com">jaymen@twrstream.com</a><br />
+            Available worldwide<br />
+            USD / EUR / GBP
+          </p>
+          <div class="footer-social">
+            <a href="https://www.tiktok.com/@shainewidirect" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok">
+              <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34v-7a8.16 8.16 0 004.77 1.52V6.37a4.85 4.85 0 01-1-.12z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/shainewistylestudio" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/ShaiNewiStyleStudio" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@ShaiNewiXJURKORA101" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Brands</h4>
+          <ul>
+            <li><a href="shainewi.html">ShaiNewi</a></li>
+            <li><a href="tetchy.html">TETCHY</a></li>
+            <li><a href="loopboss.html">LOOPBOSS</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Work With Us</h4>
+          <ul>
+            <li><a href="wholesale.html">Wholesale</a></li>
+            <li><a href="b2b.html">B2B Partners</a></li>
+            <li><a href="creators.html">Creators</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p class="footer-contact-detail">
+            <a href="mailto:jaymen@twrstream.com">jaymen@twrstream.com</a><br />
+            Available worldwide<br />
+            Remote delivery<br />
+            USD / EUR / GBP
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 TowerStream Interactive, LLC. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+    document.querySelectorAll('#hero .reveal').forEach(el => el.classList.add('visible'));
+
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('mobileMenu');
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    function closeMobile() {
+      menu.classList.remove('open');
+      toggle.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    window.addEventListener('resize', () => { if (window.innerWidth > 768) closeMobile(); });
+
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.background = window.scrollY > 40 ? 'rgba(250,250,248,0.97)' : 'rgba(250,250,248,0.92)';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TowerStream Interactive — Designed for Everyday Life.</title>
+  <meta name="description" content="TowerStream Interactive, LLC. Three independent consumer brands — TETCHY, LOOPBOSS, ShaiNewi — designed for the European and American market." />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KBMY59VPJH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KBMY59VPJH');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #FAFAF8;
+      color: #1A1A1A;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ===== DESIGN TOKENS ===== */
+    :root {
+      --bg:        #FAFAF8;
+      --ink:       #1A1A1A;
+      --stone:     #8C8070;
+      --brass:     #B8936A;
+      --deep:      #111111;
+      --border:    rgba(26,26,26,0.12);
+      --max:       1200px;
+      --px:        clamp(24px, 5vw, 80px);
+    }
+
+    /* ===== SCROLL FADE-IN ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.45s; }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--px);
+      height: 68px;
+      background: rgba(250,250,248,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nav-links a {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--brass); }
+
+    /* Brands dropdown */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 4px; cursor: pointer; }
+    .dropdown-arrow {
+      display: inline-block;
+      width: 0; height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid currentColor;
+      transition: transform 0.2s;
+    }
+    .nav-dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      min-width: 160px;
+      padding: 8px 0;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    }
+    .nav-dropdown:hover .dropdown-menu { display: block; }
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: background 0.15s, color 0.15s;
+    }
+    .dropdown-menu a:hover { background: #F5F3EF; color: var(--brass); }
+
+    /* Mobile nav toggle */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--ink);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px; left: 0; right: 0;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 24px var(--px) 32px;
+      z-index: 99;
+      flex-direction: column;
+      gap: 0;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      display: block;
+      padding: 14px 0;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+      color: var(--ink);
+    }
+    .mobile-menu a.sub { padding-left: 20px; color: var(--stone); font-size: 0.82rem; }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    /* ===== HERO — SLIDESHOW BACKGROUND ===== */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: var(--deep);
+      overflow: hidden;
+    }
+
+    /* Slideshow container */
+    .hero-slides {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+    }
+    .hero-slide.active { opacity: 1; }
+
+    /* Individual slide images */
+    .slide-tetchy {
+      background-image: url('https://static.wixstatic.com/media/8cc8c8_9960a9416cc645e69f7c874e3ec49698~mv2.jpg');
+    }
+    .slide-loopboss {
+      background-image: url('https://static.wixstatic.com/media/8cc8c8_4985067b6c9b4a22937570373fb08bef~mv2.jpg');
+    }
+    .slide-shainewi {
+      background-image: url('https://static.wixstatic.com/media/8cc8c8_0a2d76b7d2094d98b6e958d8ecbb2f14~mv2.jpg');
+      background-position: center top;
+    }
+
+    /* Dark overlay on top of slides */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(17,17,17,0.75);
+      z-index: 1;
+    }
+
+    /* Slide dots */
+    .hero-dots {
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 3;
+    }
+    .hero-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(250,250,248,0.35);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .hero-dot.active {
+      background: var(--brass);
+      transform: scale(1.3);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--px);
+      padding-top: 68px;
+    }
+    .hero-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 28px;
+    }
+    .hero-h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.25rem, 7vw, 7rem);
+      font-weight: 500;
+      line-height: 1.06;
+      color: #FAFAF8;
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--brass);
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      font-weight: 300;
+      color: rgba(250,250,248,0.72);
+      max-width: 480px;
+      line-height: 1.6;
+      margin-bottom: 52px;
+      letter-spacing: 0.01em;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 52px;
+      padding: 0 36px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.22s, color 0.22s, border-color 0.22s, transform 0.15s;
+    }
+    .btn:active { transform: scale(0.98); }
+    .btn-primary {
+      background: var(--brass);
+      color: #fff;
+      border: 1.5px solid var(--brass);
+    }
+    .btn-primary:hover { background: #a07c58; border-color: #a07c58; }
+    .btn-outline {
+      background: transparent;
+      color: #FAFAF8;
+      border: 1.5px solid rgba(250,250,248,0.5);
+    }
+    .btn-outline:hover { border-color: #FAFAF8; background: rgba(250,250,248,0.08); }
+
+    /* Hero scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(250,250,248,0.45);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      z-index: 3;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 52px;
+      background: linear-gradient(to bottom, rgba(250,250,248,0.5), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.15); }
+    }
+
+    /* ===== STATS BAR ===== */
+    #stats {
+      background: #1A1410;
+      padding: 0;
+      border-bottom: 1px solid rgba(184,147,106,0.18);
+    }
+    .stats-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--px);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .stat-item {
+      padding: 44px 24px;
+      text-align: center;
+      border-right: 1px solid rgba(184,147,106,0.15);
+      position: relative;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 4vw, 3.2rem);
+      font-weight: 600;
+      color: #B8936A;
+      line-height: 1;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: rgba(250,248,244,0.6);
+      line-height: 1.5;
+    }
+
+    /* ===== SUPPLY CHAIN SECTION ===== */
+    #supply {
+      background: #161210;
+      padding: 100px 0 96px;
+      border-bottom: 1px solid rgba(184,147,106,0.12);
+    }
+    .supply-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .supply-left {}
+    .supply-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 500;
+      color: #B8936A;
+      margin-bottom: 28px;
+      line-height: 1.2;
+    }
+    .supply-quote {
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(250,248,244,0.72);
+      border-left: 2px solid #B8936A;
+      padding-left: 28px;
+      margin-bottom: 36px;
+      font-style: italic;
+    }
+    .supply-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .supply-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #B8936A;
+      border: 1px solid rgba(184,147,106,0.35);
+      padding: 8px 16px;
+      border-radius: 2px;
+    }
+    .supply-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(184,147,106,0.12);
+    }
+    .supply-fact {
+      background: #1A1410;
+      padding: 32px 28px;
+    }
+    .supply-fact-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #B8936A;
+      margin-bottom: 8px;
+    }
+    .supply-fact-label {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: rgba(250,248,244,0.55);
+      line-height: 1.5;
+    }
+
+    /* ===== SECTION SHARED ===== */
+    section { width: 100%; }
+    .section-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--px);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 16px;
+    }
+    .section-h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      font-weight: 500;
+      line-height: 1.18;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+    .divider {
+      width: 48px;
+      height: 1.5px;
+      background: var(--brass);
+      margin-bottom: 32px;
+    }
+
+    /* ===== BRANDS SECTION ===== */
+    #brands {
+      padding: 0;
+      background: var(--bg);
+    }
+    .brands-header {
+      padding: 100px var(--px) 60px;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .brand-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .brand-card {
+      position: relative;
+      height: 75vh;
+      min-height: 520px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .brand-card a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .brand-card-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .brand-card:hover .brand-card-bg { transform: scale(1.06); }
+    .brand-card-overlay {
+      position: absolute;
+      inset: 0;
+      transition: opacity 0.4s;
+    }
+    .brand-card-content {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 48px 40px 36px;
+      z-index: 2;
+    }
+    .brand-card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 2.5vw, 2.4rem);
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .brand-card-tagline {
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      margin-bottom: 22px;
+      opacity: 0.88;
+    }
+    .brand-card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 12px 24px;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s, gap 0.2s;
+    }
+    .brand-card-btn .arrow {
+      display: inline-block;
+      width: 16px;
+      height: 1px;
+      background: currentColor;
+      position: relative;
+      transition: width 0.2s;
+    }
+    .brand-card-btn .arrow::after {
+      content: '';
+      position: absolute;
+      right: 0; top: -3px;
+      border-right: 5px solid currentColor;
+      border-top: 3px solid transparent;
+      border-bottom: 3px solid transparent;
+    }
+    .brand-card:hover .brand-card-btn .arrow { width: 24px; }
+
+    /* ===== PRODUCT THUMBNAILS ===== */
+    .brand-card-thumbs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .brand-thumb {
+      width: 64px;
+      height: 64px;
+      border-radius: 6px;
+      object-fit: cover;
+      border: 1.5px solid rgba(250,248,244,0.25);
+      background: rgba(0,0,0,0.3);
+      flex-shrink: 0;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .brand-card:hover .brand-thumb {
+      border-color: rgba(250,248,244,0.5);
+    }
+    .brand-thumb:hover {
+      transform: scale(1.06);
+      border-color: var(--brass) !important;
+    }
+
+    /* TETCHY card */
+    .card-tetchy .brand-card-bg {
+      background-image: url('https://static.wixstatic.com/media/8cc8c8_9960a9416cc645e69f7c874e3ec49698~mv2.jpg');
+    }
+    .card-tetchy .brand-card-overlay {
+      background: linear-gradient(to top, rgba(15,10,5,0.92) 0%, rgba(15,10,5,0.45) 45%, transparent 100%);
+    }
+    .card-tetchy .brand-card-name,
+    .card-tetchy .brand-card-tagline { color: #FAF8F4; }
+    .card-tetchy .brand-card-btn {
+      background: #C0654A;
+      color: #fff;
+      border: 1.5px solid #C0654A;
+    }
+    .card-tetchy .brand-card-btn:hover { background: #a85439; border-color: #a85439; }
+
+    /* LOOPBOSS card */
+    .card-loopboss .brand-card-bg {
+      background-image: url('https://static.wixstatic.com/media/8cc8c8_4985067b6c9b4a22937570373fb08bef~mv2.jpg');
+    }
+    .card-loopboss .brand-card-overlay {
+      background: linear-gradient(to top, rgba(26,22,10,0.92) 0%, rgba(26,22,10,0.45) 45%, transparent 100%);
+    }
+    .card-loopboss .brand-card-name { color: #F5C518; }
+    .card-loopboss .brand-card-tagline { color: rgba(250,248,244,0.85); }
+    .card-loopboss .brand-card-btn {
+      background: #F5C518;
+      color: #1A1A1A;
+      border: 1.5px solid #F5C518;
+      font-weight: 700;
+    }
+    .card-loopboss .brand-card-btn:hover { background: #e0b415; border-color: #e0b415; }
+
+    /* ShaiNewi card — FIX #1: background-position center top */
+    .card-shainewi .brand-card-bg {
+      background-image: url('https://static.wixstatic.com/media/8cc8c8_0a2d76b7d2094d98b6e958d8ecbb2f14~mv2.jpg');
+      background-position: center 20%;
+    }
+    .card-shainewi .brand-card-overlay {
+      background: linear-gradient(to top, rgba(10,8,5,0.88) 0%, rgba(10,8,5,0.32) 50%, transparent 100%);
+    }
+    .card-shainewi .brand-card-name,
+    .card-shainewi .brand-card-tagline { color: #FAF8F4; }
+    .card-shainewi .brand-card-btn {
+      background: transparent;
+      color: #FAF8F4;
+      border: 1.5px solid rgba(250,248,244,0.55);
+    }
+    .card-shainewi .brand-card-btn:hover {
+      background: rgba(250,248,244,0.12);
+      border-color: #FAF8F4;
+    }
+
+    /* ===== ABOUT SECTION ===== */
+    #about {
+      padding: 130px 0 120px;
+      background: var(--deep);
+      color: #FAFAF8;
+    }
+    #about .section-h2 { color: #FAFAF8; }
+    #about .section-label { color: var(--brass); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .about-body {
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(250,250,248,0.78);
+      margin-bottom: 0;
+    }
+    .about-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      padding-top: 4px;
+    }
+    .pillar {
+      border-left: 2px solid var(--brass);
+      padding-left: 24px;
+    }
+    .pillar-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 8px;
+    }
+    .pillar-body {
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.65;
+      color: rgba(250,250,248,0.68);
+    }
+
+    /* ===== B2B SECTION ===== */
+    #b2b {
+      padding: 130px 0 120px;
+      background: var(--bg);
+    }
+    .b2b-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .b2b-left { padding-top: 4px; }
+    .b2b-left .section-h2 { margin-bottom: 20px; }
+    .b2b-supporting {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.78;
+      color: var(--stone);
+      margin-bottom: 36px;
+    }
+    .b2b-note {
+      font-size: 0.8rem;
+      color: var(--stone);
+      margin-top: 16px;
+      letter-spacing: 0.02em;
+    }
+    .b2b-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .b2b-feature {
+      padding: 28px 24px;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+    }
+    .b2b-feature:nth-child(even) { border-right: none; }
+    .b2b-feature:nth-last-child(-n+2) { border-bottom: none; }
+    .b2b-feature:last-child { border-bottom: none; }
+    .b2b-feature-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .b2b-feature-body {
+      font-size: 0.88rem;
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--stone);
+    }
+
+    /* ===== CREATORS SECTION ===== */
+    #creators {
+      padding: 130px 0 120px;
+      background: #F0EBE1;
+    }
+    .creators-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .creators-body {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.78;
+      color: var(--stone);
+      margin-bottom: 40px;
+    }
+    .creator-tiers {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .tier {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(26,26,26,0.12);
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .tier:first-child { padding-top: 0; }
+    .tier:last-child { border-bottom: none; padding-bottom: 0; }
+    .tier-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--brass);
+      padding-top: 2px;
+    }
+    .tier-text {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--stone);
+    }
+    .creators-note {
+      font-size: 0.8rem;
+      color: var(--stone);
+      margin-top: 20px;
+      font-style: italic;
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    #contact {
+      padding: 130px 0 120px;
+      background: var(--deep);
+      color: #FAFAF8;
+    }
+    #contact .section-h2 { color: #FAFAF8; }
+    #contact .section-label { color: var(--brass); }
+    .contact-sub {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: rgba(250,250,248,0.55);
+      margin-bottom: 52px;
+      margin-top: -8px;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .form-field label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(250,250,248,0.5);
+    }
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      background: rgba(250,250,248,0.06);
+      border: 1px solid rgba(250,250,248,0.15);
+      border-radius: 2px;
+      padding: 14px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: #FAFAF8;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      -webkit-appearance: none;
+    }
+    .form-field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23FAFAF8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+    .form-field select option { background: #1A1A1A; color: #FAFAF8; }
+    .form-field input::placeholder,
+    .form-field textarea::placeholder { color: rgba(250,250,248,0.3); }
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--brass);
+      background: rgba(250,250,248,0.09);
+    }
+    .form-field textarea { resize: vertical; min-height: 120px; }
+    .form-submit { margin-top: 8px; }
+    .btn-submit {
+      background: var(--brass);
+      color: #fff;
+      border: 1.5px solid var(--brass);
+      height: 52px;
+      padding: 0 40px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-submit:hover { background: #a07c58; }
+    .btn-submit:active { transform: scale(0.98); }
+
+    /* Contact info side */
+    .contact-info {
+      padding-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+    .contact-info-block h4 {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 14px;
+    }
+    .contact-info-block p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(250,250,248,0.65);
+    }
+    .contact-info-block a {
+      color: rgba(250,250,248,0.78);
+      transition: color 0.2s;
+    }
+    .contact-info-block a:hover { color: var(--brass); }
+    .contact-brands {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .contact-brand-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: rgba(250,250,248,0.55);
+    }
+    .contact-brand-tag::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brass);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0B0B0B;
+      color: rgba(250,250,248,0.55);
+      padding: 72px var(--px) 32px;
+    }
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 2fr;
+      gap: 48px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid rgba(250,250,248,0.08);
+    }
+    .footer-col h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #FAFAF8;
+      margin-bottom: 6px;
+    }
+    .footer-col .footer-entity {
+      font-size: 0.78rem;
+      color: rgba(250,250,248,0.35);
+      margin-bottom: 20px;
+    }
+    .footer-col h4 {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(250,250,248,0.4);
+      margin-bottom: 16px;
+    }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(250,250,248,0.55);
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--brass); }
+    .footer-contact-detail {
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(250,250,248,0.55);
+    }
+    .footer-contact-detail a { color: rgba(250,250,248,0.55); transition: color 0.2s; }
+    .footer-contact-detail a:hover { color: var(--brass); }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .social-icon {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(250,250,248,0.15);
+      border-radius: 2px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .social-icon:hover { border-color: var(--brass); background: rgba(184,147,106,0.12); }
+    .social-icon svg { width: 15px; height: 15px; fill: rgba(250,250,248,0.55); transition: fill 0.2s; }
+    .social-icon:hover svg { fill: var(--brass); }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 28px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy {
+      font-size: 0.75rem;
+      color: rgba(250,250,248,0.28);
+    }
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-bottom-links a {
+      font-size: 0.75rem;
+      color: rgba(250,250,248,0.28);
+      transition: color 0.2s;
+    }
+    .footer-bottom-links a:hover { color: var(--brass); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .brand-cards { grid-template-columns: 1fr; }
+      .brand-card { height: 60vh; min-height: 420px; }
+      .about-grid,
+      .b2b-grid,
+      .creators-grid,
+      .contact-grid { grid-template-columns: 1fr; gap: 52px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .b2b-features { grid-template-columns: 1fr; }
+      .b2b-feature { border-right: none; }
+      .b2b-feature:last-child { border-bottom: none; }
+      .b2b-feature:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+      .b2b-feature:last-child { border-bottom: none; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .stat-item:nth-child(3) { border-right: 1px solid rgba(184,147,106,0.15); border-top: 1px solid rgba(184,147,106,0.15); }
+      .stat-item:nth-child(4) { border-right: none; border-top: 1px solid rgba(184,147,106,0.15); }
+      .supply-inner { grid-template-columns: 1fr; gap: 52px; }
+      .supply-right { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .hero-h1 { font-size: clamp(2.6rem, 10vw, 4rem); }
+      .hero-ctas { flex-direction: column; max-width: 240px; }
+      .btn { width: 100%; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      #about, #b2b, #creators, #contact { padding: 90px 0 80px; }
+      .brands-header { padding: 72px var(--px) 40px; }
+      .tier { grid-template-columns: 80px 1fr; gap: 16px; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .supply-right { grid-template-columns: repeat(2, 1fr); }
+      #supply { padding: 72px 0; }
+    }
+    @media (max-width: 480px) {
+      .brand-card { height: 55vh; min-height: 360px; }
+      .brand-card-content { padding: 36px 28px 32px; }
+      .footer-social { flex-wrap: wrap; }
+      .brand-card-thumbs { gap: 6px; }
+      .brand-thumb { width: 52px; height: 52px; }
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ===== BRAND CARD DUAL BUTTONS ===== */
+    .brand-card-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .btn-card-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 12px 24px;
+      border-radius: 2px;
+      background: var(--brass);
+      color: #fff;
+      border: 1.5px solid var(--brass);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-card-primary:hover { background: #a07c58; border-color: #a07c58; }
+    .btn-card-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 11px 22px;
+      border-radius: 2px;
+      background: transparent;
+      color: #FAFAF8;
+      border: 1.5px solid rgba(250,248,244,0.55);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-card-secondary:hover { border-color: #FAFAF8; background: rgba(250,248,244,0.08); }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav>
+    <a href="#" class="nav-logo">TWR STREAM</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li class="nav-dropdown">
+        <a href="#brands">Brands <span class="dropdown-arrow"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="tetchy.html">TETCHY</a></li>
+          <li><a href="loopboss.html">LOOPBOSS</a></li>
+          <li><a href="shainewi.html">ShaiNewi</a></li>
+        </ul>
+      </li>
+      <li><a href="wholesale.html">Wholesale</a></li>
+      <li><a href="b2b.html">B2B Partners</a></li>
+      <li><a href="creators.html">Creators</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="closeMobile()">About</a>
+    <a href="#brands" onclick="closeMobile()">Brands</a>
+    <a href="tetchy.html" class="sub">— TETCHY</a>
+    <a href="loopboss.html" class="sub">— LOOPBOSS</a>
+    <a href="shainewi.html" class="sub">— ShaiNewi</a>
+    <a href="wholesale.html" onclick="closeMobile()">Wholesale</a>
+    <a href="b2b.html" onclick="closeMobile()">B2B Partners</a>
+    <a href="creators.html" onclick="closeMobile()">Creators</a>
+    <a href="#contact" onclick="closeMobile()">Contact</a>
+  </div>
+
+  <!-- ===== HERO — Improvement #2 + #6: Slideshow background with auto-rotate ===== -->
+  <section id="hero">
+    <!-- Slide layers -->
+    <div class="hero-slides" aria-hidden="true">
+      <div class="hero-slide slide-tetchy active" data-index="0"></div>
+      <div class="hero-slide slide-loopboss" data-index="1"></div>
+      <div class="hero-slide slide-shainewi" data-index="2"></div>
+    </div>
+    <!-- Overlay -->
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <p class="hero-label reveal">TowerStream Interactive, LLC</p>
+      <h1 class="hero-h1 reveal reveal-delay-1">Designed for<br><em>Everyday Life.</em></h1>
+      <p class="hero-sub reveal reveal-delay-2">Independent brands for carry, home, and personal expression.</p>
+      <div class="hero-ctas reveal reveal-delay-3">
+        <a href="#contact" class="btn btn-primary">Request a Quote</a>
+        <a href="#brands" class="btn btn-outline">Explore Brands</a>
+      </div>
+    </div>
+
+    <!-- Slide indicator dots -->
+    <div class="hero-dots" role="tablist" aria-label="Hero slideshow">
+      <button class="hero-dot active" data-slide="0" aria-label="Slide 1" aria-selected="true"></button>
+      <button class="hero-dot" data-slide="1" aria-label="Slide 2" aria-selected="false"></button>
+      <button class="hero-dot" data-slide="2" aria-label="Slide 3" aria-selected="false"></button>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ===== STATS BAR — Improvement #4: Achievement numbers ===== -->
+  <section id="stats" aria-label="Key numbers">
+    <div class="stats-inner">
+      <div class="stat-item reveal">
+        <div class="stat-number">20+</div>
+        <div class="stat-label">Years · Verified<br>Manufacturing Network</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Independent<br>Brands</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">SKUs Across<br>All Lines</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Key Markets<br>US &amp; EU</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SUPPLY CHAIN — Improvement #5: Supply chain advantage ===== -->
+  <section id="supply">
+    <div class="supply-inner section-inner">
+      <div class="supply-left reveal">
+        <h2 class="supply-title">Our Supply Chain Advantage</h2>
+        <p class="supply-quote">
+          "Our supply chain roots run 20+ years deep in Zhejiang Province — one of the world's most advanced manufacturing regions. Every product we bring to market is built on relationships, not transactions. That means consistent quality, competitive pricing, and zero supply chain risk for our partners."
+        </p>
+        <div class="supply-tags">
+          <span class="supply-tag">Zhejiang Manufacturing Network</span>
+          <span class="supply-tag">20+ Year Factory Relationships</span>
+          <span class="supply-tag">Direct-to-Market Pipeline</span>
+        </div>
+      </div>
+      <div class="supply-right reveal reveal-delay-2">
+        <div class="supply-fact">
+          <div class="supply-fact-num">20+</div>
+          <div class="supply-fact-label">Years of factory relationships in Zhejiang Province</div>
+        </div>
+        <div class="supply-fact">
+          <div class="supply-fact-num">0</div>
+          <div class="supply-fact-label">Agent layers between you and the origin</div>
+        </div>
+        <div class="supply-fact">
+          <div class="supply-fact-num">3</div>
+          <div class="supply-fact-label">Product categories, one trade relationship</div>
+        </div>
+        <div class="supply-fact">
+          <div class="supply-fact-num">EN</div>
+          <div class="supply-fact-label">All documentation in English, invoice-ready</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BRANDS ===== -->
+  <section id="brands">
+    <div class="brands-header section-inner">
+      <p class="section-label reveal">Our Brands</p>
+      <h2 class="section-h2 reveal reveal-delay-1">Three brands.<br>One standard.</h2>
+      <div class="divider reveal reveal-delay-2"></div>
+    </div>
+    <div class="brand-cards">
+
+      <!-- TETCHY -->
+      <div class="brand-card card-tetchy">
+        <div class="brand-card-bg"></div>
+        <div class="brand-card-overlay"></div>
+        <div class="brand-card-content">
+          <h3 class="brand-card-name">TETCHY.</h3>
+          <p class="brand-card-tagline">Carry Better, Every Day.</p>
+          <div class="brand-card-thumbs">
+            <img class="brand-thumb" src="https://static.wixstatic.com/media/8cc8c8_406689d9cd9f449a981765a5ce978bda~mv2.jpg" alt="TETCHY product 1" loading="lazy" />
+            <img class="brand-thumb" src="https://static.wixstatic.com/media/8cc8c8_544496c814cd4bcba4badfa5e0da45f4~mv2.jpg" alt="TETCHY product 2" loading="lazy" />
+            <img class="brand-thumb" src="https://static.wixstatic.com/media/8cc8c8_4886362955184649a77dfd47f426bb01~mv2.jpg" alt="TETCHY product 3" loading="lazy" />
+          </div>
+          <div class="brand-card-actions">
+            <a href="tetchy.html" class="btn-card-primary">Explore <span class="arrow"></span></a>
+            <a href="https://vt.tiktok.com/ZTDb9aENk/?page=TikTokShop" target="_blank" rel="noopener" class="btn-card-secondary">Shop on TikTok</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- LOOPBOSS -->
+      <div class="brand-card card-loopboss">
+        <div class="brand-card-bg"></div>
+        <div class="brand-card-overlay"></div>
+        <div class="brand-card-content">
+          <h3 class="brand-card-name">LOOPBOSS®</h3>
+          <p class="brand-card-tagline">Smarter Essentials for Everyday Life.</p>
+          <div class="brand-card-thumbs">
+            <img class="brand-thumb" src="https://static.wixstatic.com/media/8cc8c8_6a36ed3224a2490db6750ff575c0d138~mv2.jpg" alt="LOOPBOSS product 1" loading="lazy" />
+            <img class="brand-thumb" src="https://static.wixstatic.com/media/8cc8c8_193d320d38144d2cbb8b7721b0290658~mv2.jpg" alt="LOOPBOSS product 2" loading="lazy" />
+            <img class="brand-thumb" src="https://static.wixstatic.com/media/8cc8c8_da59bf031f7c499ab0fda444657519b7~mv2.jpg" alt="LOOPBOSS product 3" loading="lazy" />
+          </div>
+          <div class="brand-card-actions">
+            <a href="loopboss.html" class="btn-card-primary">Explore <span class="arrow"></span></a>
+            <a href="https://vt.tiktok.com/ZTDb9aENk/?page=TikTokShop" target="_blank" rel="noopener" class="btn-card-secondary">Shop on TikTok</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ShaiNewi — background-position center 20% -->
+      <div class="brand-card card-shainewi">
+        <div class="brand-card-bg"></div>
+        <div class="brand-card-overlay"></div>
+        <div class="brand-card-content">
+          <h3 class="brand-card-name">ShaiNewi</h3>
+          <p class="brand-card-tagline">Refined Pieces, Made Personal.</p>
+          <div class="brand-card-thumbs">
+            <img class="brand-thumb" src="https://static.wixstatic.com/media/8cc8c8_9f0b469b2696410ba3ef64ee95cd68fe~mv2.jpg" alt="ShaiNewi product 1" loading="lazy" />
+            <img class="brand-thumb" src="https://static.wixstatic.com/media/8cc8c8_37a0d80e210c49959de6020b639dc1f7~mv2.jpg" alt="ShaiNewi product 2" loading="lazy" />
+            <img class="brand-thumb" src="https://static.wixstatic.com/media/8cc8c8_c0a251249e6e413f83100fa44ee449fd~mv2.jpg" alt="ShaiNewi product 3" loading="lazy" />
+          </div>
+          <div class="brand-card-actions">
+            <a href="shainewi.html" class="btn-card-primary">Explore <span class="arrow"></span></a>
+            <a href="https://vt.tiktok.com/ZTDb9aENk/?page=TikTokShop" target="_blank" rel="noopener" class="btn-card-secondary">Shop on TikTok</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div>
+          <p class="section-label reveal">Who We Are</p>
+          <h2 class="section-h2 reveal reveal-delay-1">Built to move product.<br>Built to build brands.</h2>
+          <div class="divider reveal reveal-delay-2"></div>
+          <p class="about-body reveal reveal-delay-3">
+            TowerStream Interactive, LLC is a US-registered trade company operating three independent consumer brands across accessories, everyday essentials, and fashion. We work directly with manufacturers, which means faster lead times, flexible minimums, and no inflated costs from extra layers in the chain. Each brand is designed for the European and American market from the ground up: TETCHY for what you carry, LOOPBOSS for what you use every day, ShaiNewi for what you give and keep. Whether you're a wholesale buyer or a content creator, you're talking to the people who make the decisions.
+          </p>
+        </div>
+        <div class="about-pillars">
+          <div class="pillar reveal reveal-delay-1">
+            <p class="pillar-title">Factory-Direct Supply</p>
+            <p class="pillar-body">We own the sourcing relationships. No agents, no markups between you and the origin.</p>
+          </div>
+          <div class="pillar reveal reveal-delay-2">
+            <p class="pillar-title">Three Independent Brands</p>
+            <p class="pillar-body">Each brand has its own identity, category, and customer. You work with the one that fits.</p>
+          </div>
+          <div class="pillar reveal reveal-delay-3">
+            <p class="pillar-title">US Entity, Global Reach</p>
+            <p class="pillar-body">Incorporated in the United States. Invoicing, compliance, and communication in English.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== B2B PARTNERS ===== -->
+  <section id="b2b">
+    <div class="section-inner">
+      <div class="b2b-grid">
+        <div class="b2b-left">
+          <p class="section-label reveal">For Wholesale &amp; Retail Buyers</p>
+          <h2 class="section-h2 reveal reveal-delay-1">Let's talk terms.</h2>
+          <div class="divider reveal reveal-delay-2"></div>
+          <p class="b2b-supporting reveal reveal-delay-3">
+            We work with retailers, importers, and platform buyers across North America and Europe. Across three product categories — jewelry and apparel, canvas accessories, and home goods — we can supply under one trade relationship or per brand, depending on how your buying is structured.
+          </p>
+          <div class="reveal reveal-delay-4">
+            <a href="b2b.html" class="btn btn-primary">Start a Partnership</a>
+            <p class="b2b-note">We reply to all trade inquiries within 2 business days.</p>
+          </div>
+        </div>
+        <div class="b2b-features reveal reveal-delay-2">
+          <div class="b2b-feature">
+            <p class="b2b-feature-title">Flexible MOQs</p>
+            <p class="b2b-feature-body">Low minimums to start, scalable as the relationship grows.</p>
+          </div>
+          <div class="b2b-feature">
+            <p class="b2b-feature-title">Multi-Category Supply</p>
+            <p class="b2b-feature-body">Three brands, one point of contact.</p>
+          </div>
+          <div class="b2b-feature">
+            <p class="b2b-feature-title">Factory-Direct Pricing</p>
+            <p class="b2b-feature-body">No agent fees, no extra margin layers.</p>
+          </div>
+          <div class="b2b-feature">
+            <p class="b2b-feature-title">English Documentation</p>
+            <p class="b2b-feature-body">Invoices, packing lists, and compliance docs in English.</p>
+          </div>
+          <div class="b2b-feature">
+            <p class="b2b-feature-title">USD / EUR / GBP Invoicing</p>
+            <p class="b2b-feature-body">We bill in the currency that works for you.</p>
+          </div>
+          <div class="b2b-feature">
+            <p class="b2b-feature-title">Sample Orders Available</p>
+            <p class="b2b-feature-body">Test product quality before committing to volume.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CREATORS ===== -->
+  <section id="creators">
+    <div class="section-inner">
+      <div class="creators-grid">
+        <div class="creators-left">
+          <p class="section-label reveal">For Content Creators &amp; Collaborators</p>
+          <h2 class="section-h2 reveal reveal-delay-1">If you make content, let's make something together.</h2>
+          <div class="divider reveal reveal-delay-2"></div>
+          <p class="creators-body reveal reveal-delay-3">
+            We collaborate with TikTok creators, Instagram accounts, and YouTube channels that reach buyers in the US and Europe. Across ShaiNewi, TETCHY, and LOOPBOSS, there are product categories and audiences worth reaching.
+          </p>
+          <div class="reveal reveal-delay-4">
+            <a href="creators.html" class="btn btn-primary">Apply to Collaborate</a>
+            <p class="creators-note">We consider all platform sizes. Niche audiences with high engagement are welcome.</p>
+          </div>
+        </div>
+        <div class="creator-tiers reveal reveal-delay-2">
+          <div class="tier">
+            <span class="tier-label">Seeding</span>
+            <p class="tier-text">We send samples, you create content, no script required.</p>
+          </div>
+          <div class="tier">
+            <span class="tier-label">Affiliate</span>
+            <p class="tier-text">Earn a percentage on sales you drive, tracked and paid reliably.</p>
+          </div>
+          <div class="tier">
+            <span class="tier-label">Paid</span>
+            <p class="tier-text">Fixed-fee arrangements for accounts with proven reach.</p>
+          </div>
+          <div class="tier">
+            <span class="tier-label">Ambassador</span>
+            <p class="tier-text">For creators who fit a brand well and want to build something ongoing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
+    <div class="section-inner">
+      <p class="section-label reveal">Get in Touch</p>
+      <h2 class="section-h2 reveal reveal-delay-1">Tell us what you're looking for.</h2>
+      <p class="contact-sub reveal reveal-delay-2">We'll get back to you within 2 business days.</p>
+      <div class="contact-grid">
+        <form class="contact-form reveal reveal-delay-2" action="mailto:jaymen@twrstream.com" method="post" enctype="text/plain">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Your email address" required />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="company">Company / Channel</label>
+            <input type="text" id="company" name="company" placeholder="Your company or channel name (optional)" />
+          </div>
+          <div class="form-field">
+            <label for="role">I'm a</label>
+            <select id="role" name="role">
+              <option value="">Select one</option>
+              <option>Wholesale Buyer</option>
+              <option>Retail Buyer</option>
+              <option>Content Creator</option>
+              <option>Press</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="What are you looking for? Tell us about your business, your audience, or your order needs."></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn-submit">Send Message</button>
+          </div>
+        </form>
+
+        <div class="contact-info reveal reveal-delay-3">
+          <div class="contact-info-block">
+            <h4>Direct Contact</h4>
+            <p>
+              <a href="mailto:jaymen@twrstream.com">jaymen@twrstream.com</a><br />
+              <a href="https://twrstream.com" target="_blank" rel="noopener">twrstream.com</a>
+            </p>
+          </div>
+          <div class="contact-info-block">
+            <h4>Available For</h4>
+            <div class="contact-brands">
+              <span class="contact-brand-tag">Wholesale &amp; Retail Inquiries</span>
+              <span class="contact-brand-tag">Creator Collaboration</span>
+              <span class="contact-brand-tag">Press &amp; Media</span>
+              <span class="contact-brand-tag">General Trade</span>
+            </div>
+          </div>
+          <div class="contact-info-block">
+            <h4>Our Brands</h4>
+            <div class="contact-brands">
+              <span class="contact-brand-tag">TETCHY — Canvas Totes</span>
+              <span class="contact-brand-tag">LOOPBOSS — Home Essentials</span>
+              <span class="contact-brand-tag">ShaiNewi — Jewelry &amp; Apparel</span>
+            </div>
+          </div>
+          <div class="contact-info-block">
+            <h4>Availability</h4>
+            <p>
+              Available worldwide<br />
+              Remote delivery<br />
+              USD / EUR / GBP invoicing
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-col">
+          <h3>TWR STREAM</h3>
+          <p class="footer-entity">TowerStream Interactive, LLC</p>
+          <p class="footer-contact-detail">
+            <a href="mailto:jaymen@twrstream.com">jaymen@twrstream.com</a><br />
+            Available worldwide<br />
+            USD / EUR / GBP
+          </p>
+          <div class="footer-social">
+            <!-- TikTok -->
+            <a href="https://www.tiktok.com/@shainewidirect" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34v-7a8.16 8.16 0 004.77 1.52V6.37a4.85 4.85 0 01-1-.12z"/></svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/shainewistylestudio" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/ShaiNewiStyleStudio" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <!-- YouTube -->
+            <a href="https://www.youtube.com/@ShaiNewiXJURKORA101" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="#" class="social-icon" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <!-- Pinterest -->
+            <a href="https://www.pinterest.com/ShaiNewiStyleStudio" target="_blank" rel="noopener" class="social-icon" aria-label="Pinterest">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Brands</h4>
+          <ul>
+            <li><a href="shainewi.html">ShaiNewi</a></li>
+            <li><a href="tetchy.html">TETCHY</a></li>
+            <li><a href="loopboss.html">LOOPBOSS</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Work With Us</h4>
+          <ul>
+            <li><a href="b2b.html">B2B Partners</a></li>
+            <li><a href="creators.html">Creators</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p class="footer-contact-detail">
+            <a href="mailto:jaymen@twrstream.com">jaymen@twrstream.com</a><br />
+            Available worldwide<br />
+            Remote delivery<br />
+            USD / EUR / GBP
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 TowerStream Interactive, LLC. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // ── Scroll reveal (Intersection Observer) ──
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Kick hero reveals immediately
+    document.querySelectorAll('#hero .reveal').forEach(el => el.classList.add('visible'));
+
+    // ── Hero Slideshow — Improvement #6: auto-rotate every 5s, fade transition ──
+    (function() {
+      const slides = document.querySelectorAll('.hero-slide');
+      const dots   = document.querySelectorAll('.hero-dot');
+      let current  = 0;
+      let timer    = null;
+
+      function goTo(idx) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        dots[current].setAttribute('aria-selected', 'false');
+        current = (idx + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+        dots[current].setAttribute('aria-selected', 'true');
+      }
+
+      function next() { goTo(current + 1); }
+
+      function startTimer() {
+        clearInterval(timer);
+        timer = setInterval(next, 5000);
+      }
+
+      // Dot clicks
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          goTo(parseInt(dot.dataset.slide, 10));
+          startTimer(); // restart interval on manual click
+        });
+      });
+
+      // Pause on hover
+      const hero = document.getElementById('hero');
+      hero.addEventListener('mouseenter', () => clearInterval(timer));
+      hero.addEventListener('mouseleave', startTimer);
+
+      startTimer();
+    })();
+
+    // ── Mobile nav toggle ──
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('mobileMenu');
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    function closeMobile() {
+      menu.classList.remove('open');
+      toggle.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Close mobile menu on resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) closeMobile();
+    });
+
+    // ── Smooth anchor links ──
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const offset = 68;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ── Nav background on scroll ──
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.background = window.scrollY > 40
+        ? 'rgba(250,250,248,0.97)'
+        : 'rgba(250,250,248,0.92)';
+    });
+  </script>
+</body>
+</html>
