@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TETCHY Canvas Bags: Built for the Way You Actually Live | TowerStream Interactive</title>
+  <meta name="description" content="Meet TETCHY — the canvas tote brand with a point of view. Built for creators, commuters, and people who want a bag that says something. Factory-direct quality, contemporary design, wholesale available." />
+  <meta name="keywords" content="TETCHY, canvas tote bag, wholesale canvas bags, factory direct bags, TowerStream, canvas tote wholesale, designer tote bag" />
+  <meta property="og:title" content="TETCHY Canvas Bags: Built for the Way You Actually Live | TowerStream Interactive" />
+  <meta property="og:description" content="Meet TETCHY — the canvas tote brand with a point of view. Built for creators, commuters, and people who want a bag that says something. Factory-direct quality, contemporary design, wholesale available." />
+  <meta property="og:image" content="https://static.wixstatic.com/media/8cc8c8_16ce5cdd9014454baeca3ef9dec41856~mv2.jpg" />
+  <meta property="og:url" content="https://twrstream.com/blog/blog-2.html" />
+  <link rel="icon" type="image/png" href="../twrstream-badge-social.png">
+  <link rel="apple-touch-icon" href="../twrstream-badge-social.png">
+  <link rel="canonical" href="https://twrstream.com/blog/blog-2.html">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KBMY59VPJH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KBMY59VPJH');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Inter', sans-serif; background: #FAFAF8; color: #1A1A1A; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+
+    :root {
+      --bg: #FAFAF8;
+      --ink: #1A1A1A;
+      --stone: #8C8070;
+      --brass: #B8936A;
+      --deep: #111111;
+      --tetchy: #C0654A;
+      --border: rgba(26,26,26,0.12);
+      --max: 800px;
+      --px: clamp(24px, 5vw, 80px);
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 var(--px); height: 68px;
+      background: rgba(17,17,17,0.96); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(184,147,106,0.18);
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; letter-spacing: 0.08em; color: #FAFAF8; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(250,250,248,0.75); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--brass); }
+
+    .blog-hero {
+      background: #1A0E0A; padding: 140px var(--px) 72px;
+      border-bottom: 1px solid rgba(192,101,74,0.2);
+    }
+    .blog-hero-inner { max-width: var(--max); margin: 0 auto; }
+    .blog-category {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--tetchy); margin-bottom: 20px;
+    }
+    .blog-hero h1 {
+      font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 600; line-height: 1.18; color: #FAFAF8; margin-bottom: 24px;
+    }
+    .blog-meta { font-size: 0.82rem; color: rgba(250,250,248,0.5); letter-spacing: 0.04em; }
+
+    .article-wrap { max-width: var(--max); margin: 0 auto; padding: 64px var(--px) 100px; }
+    .article-body { font-size: 1.0625rem; line-height: 1.85; color: #2A2A2A; }
+    .article-body p { margin-bottom: 1.6em; }
+    .article-body h2 {
+      font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 600;
+      color: var(--ink); margin: 2.4em 0 0.8em; line-height: 1.25;
+    }
+    .article-body h3 {
+      font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 500;
+      color: var(--stone); margin: 1.8em 0 0.6em;
+    }
+    .article-body ul { margin: 0 0 1.6em 1.4em; list-style: disc; }
+    .article-body ul li { margin-bottom: 0.55em; }
+    .article-body strong { font-weight: 600; color: var(--ink); }
+    .pull-quote {
+      border-left: 3px solid var(--tetchy); padding: 20px 28px; margin: 2.4em 0;
+      background: #FBF1EE; font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-style: italic; color: #7A3E2A; line-height: 1.65;
+    }
+    .divider { width: 48px; height: 2px; background: var(--tetchy); margin: 2em 0; }
+
+    .cta-box {
+      background: #1A0E0A; border-radius: 4px; padding: 48px 40px; margin-top: 56px; text-align: center;
+    }
+    .cta-box h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: #FAFAF8; margin-bottom: 14px; }
+    .cta-box p { font-size: 0.95rem; color: rgba(250,250,248,0.65); margin-bottom: 28px; line-height: 1.7; }
+    .cta-box a.btn {
+      display: inline-flex; align-items: center; height: 48px; padding: 0 32px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--tetchy); color: #fff; border-radius: 2px; transition: background 0.2s;
+    }
+    .cta-box a.btn:hover { background: #a85439; }
+    .cta-box .cta-email { font-size: 0.85rem; color: rgba(250,250,248,0.5); margin-top: 16px; }
+    .cta-box .cta-email a { color: var(--tetchy); }
+
+    footer {
+      background: #0D0B09; padding: 48px var(--px);
+      border-top: 1px solid rgba(184,147,106,0.12); text-align: center;
+    }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: #FAFAF8; letter-spacing: 0.08em; margin-bottom: 12px; }
+    .footer-copy { font-size: 0.78rem; color: rgba(250,250,248,0.35); letter-spacing: 0.04em; }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .cta-box { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">TWR STREAM</a>
+    <div class="nav-links">
+      <a href="../index.html" style="color:var(--tetchy);">← Back to Site</a>
+      <a href="../index.html#brands">Brands</a>
+      <a href="mailto:jaymen@twrstream.com">Contact</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-hero-inner">
+      <div class="blog-category">Brand &nbsp;·&nbsp; TETCHY</div>
+      <h1>TETCHY Canvas Bags: Built for the Way You Actually Live</h1>
+      <div class="blog-meta">By TowerStream Interactive &nbsp;·&nbsp; September 2026 &nbsp;·&nbsp; 7 min read</div>
+    </div>
+  </div>
+
+  <div class="article-wrap">
+    <article class="article-body">
+
+      <p>A canvas tote is not a neutral object. The one you carry says something about you before you open your mouth. It tells people what you read, where you shop, what you care about, and whether you bother thinking about those things at all. Most people who reach for a tote bag understand this instinctively. Most tote brands pretend they don't.</p>
+
+      <p><strong>TETCHY doesn't pretend.</strong> The brand was built on the assumption that a bag with no point of view is just a bag. And the world already has enough of those.</p>
+
+      <div class="divider"></div>
+
+      <h2>What TETCHY Actually Is</h2>
+
+      <p>TETCHY is a canvas tote brand under TowerStream Interactive, designed specifically for the North American and European market. The name itself — meaning irritable, particular, unwilling to settle — is the brand's entire personality compressed into one word. It's a bag for people who are tired of boring bags.</p>
+
+      <p>Every TETCHY tote is produced through TowerStream's direct factory relationships in Zhejiang Province, China, one of the most skilled textile and bag manufacturing regions in the world. The result is factory-direct quality at a price that doesn't require a markup chain to justify. No middlemen adding cost. No compromises on materials to protect a margin.</p>
+
+      <h2>The Canvas Tote Has Grown Up</h2>
+
+      <p>Twenty years ago, a canvas tote was a grocery bag alternative. Something you grabbed at a bookstore checkout. An environmental statement held together with a screenprint.</p>
+
+      <p>That's not what it is anymore.</p>
+
+      <p>Today, the canvas tote is one of the most culturally loaded accessories a person can carry. In cities like New York, London, Amsterdam, and Portland, what's on your shoulder is shorthand for who you are. The market understands this. Baggu turned it into a design movement. Strand Bookstore turned it into a cultural signal. And an entire generation of young women turned it into a daily expression of identity — something they'll own five of, not one, because five different moods need five different statements.</p>
+
+      <p>TETCHY lives in this world. Not as a follower of it, but as a brand with its own thing to say.</p>
+
+      <div class="pull-quote">
+        "A bag with a point of view. That's the whole brief. Design it backward from that statement and you stop making bags nobody remembers."
+      </div>
+
+      <h2>The Design Language: Eastern Eye, Contemporary Shape</h2>
+
+      <p>TETCHY's design DNA pulls from Eastern visual traditions, but not the way most people expect. There are no dragons. No red lanterns. No characters borrowed as decoration for an audience that doesn't read them.</p>
+
+      <p>Instead, TETCHY works with the underlying visual logic of Eastern aesthetics: the negative space of Chinese landscape painting, the geometric clarity of traditional textile patterns, the quiet weight of botanical illustration done with ink and restraint. These references are processed through a contemporary design sensibility and produced as prints, patterns, and colorways that stand on their own without needing a cultural footnote to be appreciated.</p>
+
+      <p>Someone who knows nothing about Chinese art history can look at a TETCHY tote and find the design compelling. Someone who does will find an extra layer of resonance. That's the right order of things for a brand crossing cultural contexts.</p>
+
+      <h2>Built to Be Carried Every Day</h2>
+
+      <h3>Materials</h3>
+      <p>TETCHY uses heavy-duty cotton canvas as its base material, the same category that makes a tote last years instead of months. The canvas holds its shape, resists stretching, and develops a texture over time that most synthetic alternatives can't replicate. Handles are reinforced at the stress points where cheap bags fail first.</p>
+
+      <h3>Capacity and Proportion</h3>
+      <p>TETCHY totes are sized to carry real things: a laptop, a library book, a change of clothes, groceries on the way home. Not so oversized that they're awkward to manage, not so small that they're decorative. The proportion is deliberate, designed around how people actually use a bag on a daily commute or a weekend.</p>
+
+      <h3>Print Durability</h3>
+      <p>Prints are applied to hold. The designs TETCHY puts on canvas are meant to look as good after a hundred washes as they do on day one. This is a sourcing decision as much as a design one — the right factory matters here as much as the right artwork.</p>
+
+      <h2>Who TETCHY Is For</h2>
+
+      <p>TETCHY's core customer is a 22 to 35-year-old woman in a North American or European city. She has opinions about design. She's more likely to find a new brand on TikTok than in a mall. She buys a tote because it's the right one, not because it was on sale, and she expects it to still look right three years from now.</p>
+
+      <p>She's also likely to own more than one TETCHY. Different prints for different moods. That's not a flaw in the product — it's the product working exactly as intended.</p>
+
+      <p>For <strong>retail buyers and wholesale partners</strong>, TETCHY represents a clear proposition: a designed canvas tote at a price point ($28 to $55) that moves in boutiques, curated gift shops, and independent retailers without sitting. The design language is distinctive enough to justify shelf space. The factory-direct supply chain means the margin is real.</p>
+
+      <h2>For Wholesale and Retail Partners</h2>
+
+      <p>TowerStream works with wholesale buyers who want to carry TETCHY in their stores, platforms, or gift collections. Because we own the supply chain directly, we can work with partners who need consistent quality across reorders, custom colorways for exclusive retail runs, or category exclusivity in specific markets.</p>
+
+      <p>Content creators and boutique owners have found TETCHY particularly well suited to their audiences. The design speaks before a caption does, which is exactly what you need when you're selling to a scroll-and-stop audience.</p>
+
+      <h2>A Brand Worth Backing</h2>
+
+      <p>TETCHY is not trying to be everything to everyone. It's a canvas tote brand with a specific design sensibility, made well, priced honestly, and backed by a supply chain that has been operating for over 20 years.</p>
+
+      <p>That's a narrow brief, but it's a clear one. And in a crowded market, clarity is the rarest thing of all.</p>
+
+    </article>
+
+    <div class="cta-box">
+      <h3>Interested in Stocking TETCHY?</h3>
+      <p>We work with retailers, boutiques, and wholesale buyers across North America and Europe. Minimum orders and pricing are straightforward — reach out and we'll send details.</p>
+      <a href="https://twrstream.com" class="btn">Visit twrstream.com</a>
+      <div class="cta-email">Trade inquiries: <a href="mailto:jaymen@twrstream.com">jaymen@twrstream.com</a></div>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:40px 20px;">
+  <a href="../blog.html" style="font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#B8936A;text-decoration:none;border-bottom:1px solid #B8936A;padding-bottom:4px;">← Back to Blog</a>
+</div>
+
+  <footer>
+    <div class="footer-logo">TOWERSTREAM INTERACTIVE</div>
+    <div class="footer-copy">&copy; 2026 TowerStream Interactive, LLC &nbsp;·&nbsp; <a href="https://twrstream.com" style="color:var(--brass);">twrstream.com</a></div>
+  </footer>
+
+<!-- Cookie Notice -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1A1A1A;color:rgba(250,250,248,0.85);padding:20px 32px;z-index:9999;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;border-top:1px solid rgba(184,147,106,0.3);">
+  <p style="margin:0;font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:300;line-height:1.6;max-width:700px;">We use cookies to improve your experience and analyze site traffic. By continuing to browse, you agree to our <a href="../privacy.html" style="color:#B8936A;text-decoration:underline;">Cookie Policy</a>.</p>
+  <button onclick="acceptCookies()" style="background:#B8936A;color:#fff;border:none;padding:12px 28px;font-family:'Inter',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;border-radius:2px;cursor:pointer;white-space:nowrap;flex-shrink:0;">Accept</button>
+</div>
+<script>
+  function acceptCookies() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+  window.addEventListener('DOMContentLoaded', function() {
+    if (!localStorage.getItem('cookiesAccepted')) {
+      document.getElementById('cookie-banner').style.display = 'flex';
+    }
+  });
+</script>
+</body>
+</html>

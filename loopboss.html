@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LOOPBOSS® — Smarter Essentials for Everyday Life</title>
+  <link rel="icon" type="image/png" href="twrstream-badge-social.png">
+  <link rel="apple-touch-icon" href="twrstream-badge-social.png">
+  <link rel="canonical" href="https://twrstream.com/loopboss.html">
+  <meta name="description" content="LOOPBOSS® — Drinkware, kitchen tools, and small appliances built for the modern home. Wholesale and retail partnerships welcome." />
+  <meta property="og:title" content="LOOPBOSS — Street Culture Accessories" />
+  <meta property="og:description" content="LOOPBOSS® — Drinkware, kitchen tools, and small appliances built for the modern home. Wholesale and retail partnerships welcome." />
+  <meta property="og:image" content="https://static.wixstatic.com/media/8cc8c8_16ce5cdd9014454baeca3ef9dec41856~mv2.jpg" />
+  <meta property="og:url" content="https://twrstream.com/loopboss.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KBMY59VPJH"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-KBMY59VPJH');</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;font-size:16px;}
+    body{font-family:'Inter',sans-serif;background:#FAFAF8;color:#1A1A1A;overflow-x:hidden;}
+    img{display:block;max-width:100%;}
+    a{text-decoration:none;color:inherit;}
+    ul{list-style:none;}
+    :root{--bg:#FAFAF8;--ink:#1A1A1A;--stone:#8C8070;--brass:#B8936A;--deep:#111111;--lb-dark:#1C1C1C;--lb-yellow:#F5C518;--lb-gray:#2C2C2C;--border:rgba(26,26,26,0.12);--max:1200px;--px:clamp(24px,5vw,80px);}
+    .reveal{opacity:0;transform:translateY(40px);transition:opacity 0.75s ease,transform 0.75s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .reveal-delay-1{transition-delay:0.1s;}.reveal-delay-2{transition-delay:0.2s;}.reveal-delay-3{transition-delay:0.3s;}.reveal-delay-4{transition-delay:0.45s;}.reveal-delay-5{transition-delay:0.6s;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 var(--px);height:68px;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:background 0.3s;}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;letter-spacing:0.08em;color:var(--ink);transition:color 0.2s;}
+    .nav-logo:hover{color:var(--brass);}
+    .nav-links{display:flex;align-items:center;gap:2rem;}
+    .nav-links a{font-size:0.8125rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);transition:color 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--brass);}
+    .nav-dropdown{position:relative;}
+    .nav-dropdown>a{display:flex;align-items:center;gap:4px;cursor:pointer;}
+    .dropdown-arrow{display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;transition:transform 0.2s;}
+    .nav-dropdown:hover .dropdown-arrow{transform:rotate(180deg);}
+    .dropdown-menu{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#fff;border:1px solid var(--border);border-radius:4px;min-width:160px;padding:8px 0;box-shadow:0 8px 32px rgba(0,0,0,0.10);}
+    .nav-dropdown:hover .dropdown-menu{display:block;}
+    .dropdown-menu a{display:block;padding:10px 20px;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;transition:background 0.15s,color 0.15s;}
+    .dropdown-menu a:hover{background:#F5F3EF;color:var(--brass);}
+    .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+    .nav-toggle span{display:block;width:24px;height:2px;background:var(--ink);transition:all 0.3s;}
+    @media(max-width:768px){
+      .nav-toggle{display:flex;}
+      .nav-links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;background:rgba(250,250,248,0.98);border-bottom:1px solid var(--border);padding:16px 0;}
+      .nav-links.open{display:flex;}
+      .nav-links a{padding:12px var(--px);width:100%;}
+      .dropdown-menu{position:static;transform:none;box-shadow:none;border:none;border-top:1px solid var(--border);padding:0;background:#F5F3EF;}
+      .nav-dropdown:hover .dropdown-menu,.nav-dropdown.open .dropdown-menu{display:block;}
+      .dropdown-menu a{padding:10px var(--px) 10px calc(var(--px) + 16px);}
+    }
+    .hero{position:relative;width:100%;height:100vh;min-height:600px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+    .hero-bg{position:absolute;inset:0;background-image:url('https://static.wixstatic.com/media/8cc8c8_4985067b6c9b4a22937570373fb08bef~mv2.jpg');background-size:cover;background-position:center;transform:scale(1.04);transition:transform 8s ease;}
+    .hero-bg.loaded{transform:scale(1);}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.35) 0%,rgba(0,0,0,0.55) 50%,rgba(0,0,0,0.70) 100%);}
+    .hero-content{position:relative;z-index:2;text-align:center;padding:0 var(--px);max-width:860px;}
+    .hero-eyebrow{font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--lb-yellow);margin-bottom:20px;}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(3.5rem,8vw,7rem);font-weight:700;color:#ffffff;letter-spacing:0.04em;line-height:1.0;margin-bottom:24px;}
+    .hero-title sup{font-size:0.35em;vertical-align:super;letter-spacing:0;}
+    .hero-sub{font-family:'Playfair Display',serif;font-size:clamp(1.1rem,2.2vw,1.5rem);font-weight:400;font-style:italic;color:rgba(255,255,255,0.88);margin-bottom:16px;letter-spacing:0.01em;}
+    .hero-desc{font-size:0.9375rem;font-weight:300;color:rgba(255,255,255,0.70);letter-spacing:0.03em;margin-bottom:44px;}
+    .hero-ctas{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}
+    .btn-primary{display:inline-block;background:var(--lb-yellow);color:#1A1A1A;font-size:0.8125rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:15px 36px;border-radius:2px;transition:background 0.2s,transform 0.2s;}
+    .btn-primary:hover{background:#f0bb00;transform:translateY(-1px);}
+    .btn-outline-light{display:inline-block;border:1.5px solid rgba(255,255,255,0.6);color:#ffffff;font-size:0.8125rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:14px 36px;border-radius:2px;transition:border-color 0.2s,background 0.2s;}
+    .btn-outline-light:hover{border-color:#ffffff;background:rgba(255,255,255,0.1);}
+    .hero-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,0.5);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;}
+    .hero-scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(255,255,255,0.5),transparent);animation:scrollLine 1.8s ease-in-out infinite;}
+    @keyframes scrollLine{0%,100%{transform:scaleY(1);opacity:1;}50%{transform:scaleY(0.5);opacity:0.4;}}
+    .section{padding:clamp(72px,10vw,140px) var(--px);}
+    .section-inner{max-width:var(--max);margin:0 auto;}
+    .section-label{font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--lb-yellow);margin-bottom:16px;background:var(--lb-gray);display:inline-block;padding:4px 12px;border-radius:2px;}
+    .section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.25rem);font-weight:600;line-height:1.15;color:var(--ink);margin-bottom:20px;}
+    .section-body{font-size:1rem;font-weight:300;line-height:1.75;color:var(--stone);max-width:640px;}
+    .brand-story{background:var(--lb-gray);}
+    .brand-story .section-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+    .story-pillars{display:grid;grid-template-columns:1fr;gap:32px;}
+    .pillar{border-left:3px solid var(--lb-yellow);padding-left:24px;}
+    .pillar-num{font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--lb-yellow);margin-bottom:6px;}
+    .pillar-title{font-family:'Inter',sans-serif;font-size:1rem;font-weight:600;color:#ffffff;margin-bottom:6px;}
+    .pillar-text{font-size:0.875rem;font-weight:300;line-height:1.65;color:rgba(255,255,255,0.60);}
+    @media(max-width:900px){.brand-story .section-inner{grid-template-columns:1fr;gap:48px;}}
+    .series-section{padding:0;}
+    .series-hero{position:relative;width:100%;height:clamp(320px,45vw,560px);overflow:hidden;}
+    .series-hero-img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 0.6s ease;}
+    .series-hero:hover .series-hero-img{transform:scale(1.03);}
+    .series-hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.70) 0%,rgba(0,0,0,0.10) 65%);display:flex;align-items:flex-end;padding:clamp(32px,5vw,72px);}
+    .series-tag{font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--lb-yellow);margin-bottom:12px;}
+    .series-name{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.75rem);font-weight:700;color:#ffffff;line-height:1.05;margin-bottom:14px;}
+    .series-desc{font-size:0.9375rem;font-weight:300;color:rgba(255,255,255,0.75);max-width:380px;line-height:1.65;}
+    .series-grid-wrap{background:#F5F3EF;padding:clamp(40px,6vw,80px) var(--px);}
+    .series-grid{max-width:var(--max);margin:0 auto;display:grid;gap:12px;}
+    .series-grid.drinkware{grid-template-columns:repeat(5,1fr);}
+    .series-grid.kitchen{grid-template-columns:repeat(4,1fr);}
+    .series-grid.appliances{grid-template-columns:repeat(3,1fr);}
+    .product-card{position:relative;overflow:hidden;border-radius:3px;background:#ffffff;aspect-ratio:1/1;cursor:pointer;}
+    .product-card img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;}
+    .product-card:hover img{transform:scale(1.08);}
+    .product-card-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.72),transparent);padding:20px 14px 12px;opacity:0;transition:opacity 0.3s;}
+    .product-card:hover .product-card-label{opacity:1;}
+    .product-card-name{font-size:0.75rem;font-weight:500;letter-spacing:0.06em;color:#ffffff;text-transform:uppercase;}
+    .series-grid-header{max-width:var(--max);margin:0 auto 36px;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+    .series-count{font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);padding-bottom:4px;}
+    .series-grid-title{font-family:'Inter',sans-serif;font-size:1.125rem;font-weight:600;color:var(--ink);letter-spacing:-0.01em;}
+    .series-grid-wrap.dark{background:#EDEAE4;}
+    @media(max-width:1024px){.series-grid.drinkware{grid-template-columns:repeat(4,1fr);}.series-grid.kitchen{grid-template-columns:repeat(3,1fr);}.series-grid.appliances{grid-template-columns:repeat(3,1fr);}}
+    @media(max-width:640px){.series-grid.drinkware,.series-grid.kitchen,.series-grid.appliances{grid-template-columns:repeat(2,1fr);gap:8px;}.series-hero-overlay{padding:24px;}.series-hero{height:clamp(260px,55vw,360px);}}
+    .stats-bar{background:var(--lb-gray);padding:56px var(--px);}
+    .stats-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:40px;text-align:center;}
+    .stat-num{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--lb-yellow);line-height:1;margin-bottom:8px;}
+    .stat-label{font-size:0.8rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.55);}
+    @media(max-width:700px){.stats-inner{grid-template-columns:repeat(2,1fr);}}
+    .b2b-section{background:#1A1A1A;position:relative;overflow:hidden;}
+    .b2b-bg-pattern{position:absolute;inset:0;opacity:0.04;background-image:repeating-linear-gradient(45deg,#F5C518 0,#F5C518 1px,transparent 0,transparent 50%);background-size:28px 28px;}
+    .b2b-inner{max-width:800px;margin:0 auto;text-align:center;position:relative;z-index:1;}
+    .b2b-eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--lb-yellow);margin-bottom:20px;}
+    .b2b-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.25rem);font-weight:600;color:#ffffff;line-height:1.15;margin-bottom:24px;}
+    .b2b-body{font-size:1rem;font-weight:300;line-height:1.75;color:rgba(255,255,255,0.65);margin-bottom:40px;}
+    .b2b-features{display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;margin-bottom:44px;}
+    .b2b-feature{display:flex;align-items:center;gap:8px;font-size:0.875rem;font-weight:400;color:rgba(255,255,255,0.75);}
+    .b2b-feature-dot{width:6px;height:6px;border-radius:50%;background:var(--lb-yellow);flex-shrink:0;}
+    .btn-yellow{display:inline-block;background:var(--lb-yellow);color:#1A1A1A;font-size:0.875rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:17px 44px;border-radius:2px;transition:background 0.2s,transform 0.2s;}
+    .btn-yellow:hover{background:#f0bb00;transform:translateY(-2px);}
+    footer{background:#0D0D0D;padding:60px var(--px) 32px;}
+    .footer-inner{max-width:var(--max);margin:0 auto;}
+    .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:32px;}
+    .footer-brand-name{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;color:#ffffff;letter-spacing:0.06em;margin-bottom:12px;}
+    .footer-brand-tag{font-size:0.8125rem;font-weight:300;color:rgba(255,255,255,0.45);line-height:1.65;margin-bottom:28px;}
+    .footer-social{display:flex;gap:12px;}
+    .footer-social a{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid rgba(255,255,255,0.12);border-radius:50%;color:rgba(255,255,255,0.55);transition:border-color 0.2s,color 0.2s,background 0.2s;}
+    .footer-social a:hover{border-color:var(--lb-yellow);color:var(--lb-yellow);background:rgba(245,197,24,0.08);}
+    .footer-col-title{font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:20px;}
+    .footer-col ul{display:flex;flex-direction:column;gap:12px;}
+    .footer-col ul li a{font-size:0.875rem;font-weight:300;color:rgba(255,255,255,0.55);transition:color 0.2s;}
+    .footer-col ul li a:hover{color:#ffffff;}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+    .footer-copy{font-size:0.78125rem;font-weight:300;color:rgba(255,255,255,0.28);}
+    .footer-email a{font-size:0.78125rem;font-weight:400;color:rgba(255,255,255,0.40);transition:color 0.2s;}
+    .footer-email a:hover{color:var(--lb-yellow);}
+    @media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr;gap:36px;}}
+    @media(max-width:480px){.footer-top{grid-template-columns:1fr;}}
+    .back-top{position:fixed;bottom:32px;right:32px;z-index:50;width:44px;height:44px;background:var(--lb-yellow);border-radius:2px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transform:translateY(16px);transition:opacity 0.3s,transform 0.3s;pointer-events:none;}
+    .back-top.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
+    .back-top svg{width:18px;height:18px;fill:none;stroke:#1A1A1A;stroke-width:2.5;}
+    .btn-whatsapp{display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 28px;font-family:'Inter',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;border-radius:2px;background:#25D366;color:#fff;border:1.5px solid #25D366;text-decoration:none;transition:background 0.2s,border-color 0.2s;}
+    .btn-whatsapp:hover{background:#1da851;border-color:#1da851;}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">TWR STREAM</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html#about">About</a>
+      <div class="nav-dropdown">
+        <a>Brands <span class="dropdown-arrow"></span></a>
+        <div class="dropdown-menu">
+          <a href="shainewi.html">ShaiNewi</a>
+          <a href="tetchy.html">TETCHY</a>
+          <a href="loopboss.html" class="active">LOOPBOSS</a>
+        </div>
+      </div>
+      <a href="index.html#b2b">B2B Partners</a>
+      <a href="index.html#creators">Creators</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal">Home &amp; Kitchen Essentials</p>
+      <h1 class="hero-title reveal reveal-delay-1">LOOPBOSS<sup>®</sup></h1>
+      <p class="hero-sub reveal reveal-delay-2">Smarter Essentials for Everyday Life.</p>
+      <p class="hero-desc reveal reveal-delay-3">Drinkware, kitchen tools, and small appliances built for the modern home.</p>
+      <div class="hero-ctas reveal reveal-delay-4">
+        <a href="#products" class="btn-primary">Explore Products</a>
+        <a href="#b2b" class="btn-outline-light">Partner with Us</a>
+      </div>
+      <div style="margin-top:20px;"><a href="https://wa.me/16262958151" target="_blank" rel="noopener noreferrer" class="btn-whatsapp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:7px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.855L0 24l6.318-1.508A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-4.988-1.364l-.356-.212-3.75.895.952-3.655-.233-.376A9.818 9.818 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>Chat on WhatsApp</a></div>
+    </div>
+    <div class="hero-scroll"><div class="hero-scroll-line"></div><span>Scroll</span></div>
+  </section>
+
+  <section class="brand-story section">
+    <div class="section-inner">
+      <div class="story-left reveal">
+        <p class="section-label" style="margin-bottom:20px;">Our Story</p>
+        <h2 class="section-title" style="color:#ffffff;max-width:420px;margin-bottom:20px;">Built to keep your life running.</h2>
+        <p class="section-body" style="color:rgba(255,255,255,0.60);margin-bottom:0;">LOOPBOSS is the toolkit for the modern home. Not the flashiest brand on the shelf — the one you reach for every day because it works, holds up, and doesn't disappoint. Every product we ship is chosen for one reason: it earns its place in your kitchen, on your desk, or in your hand.</p>
+      </div>
+      <div class="story-pillars">
+        <div class="pillar reveal reveal-delay-1"><p class="pillar-num">01</p><p class="pillar-title">Intelligent Design</p><p class="pillar-text">Every detail has a reason. We design and select products that solve a real problem — not products that look good on a shelf but fail on day two.</p></div>
+        <div class="pillar reveal reveal-delay-2"><p class="pillar-num">02</p><p class="pillar-title">Everyday Reliability</p><p class="pillar-text">Tested for real-world conditions. Whether it's a 20-hour road trip with a full insulated bottle or a Sunday morning kitchen session, LOOPBOSS gear keeps up.</p></div>
+        <div class="pillar reveal reveal-delay-3"><p class="pillar-num">03</p><p class="pillar-title">No-Compromise Quality</p><p class="pillar-text">20+ years of factory relationships in Zhejiang let us source at a level most brands can't. Better materials, tighter tolerances, honest pricing.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-bar" id="products">
+    <div class="stats-inner">
+      <div class="reveal"><div class="stat-num">25+</div><div class="stat-label">SKUs Available</div></div>
+      <div class="reveal reveal-delay-1"><div class="stat-num">20+</div><div class="stat-label">Years Factory Relationships</div></div>
+      <div class="reveal reveal-delay-2"><div class="stat-num">3</div><div class="stat-label">Product Lines</div></div>
+      <div class="reveal reveal-delay-3"><div class="stat-num">MOQ<span style="font-size:0.5em;vertical-align:middle;"> Flex</span></div><div class="stat-label">Wholesale Minimum</div></div>
+    </div>
+  </section>
+
+  <section class="series-section">
+    <div class="series-hero reveal">
+      <img src="https://static.wixstatic.com/media/8cc8c8_0ef1e2b989af4020b09e27d7cf74ee74~mv2.jpg" alt="LOOPBOSS Insulated Drinkware" class="series-hero-img" loading="lazy" />
+      <div class="series-hero-overlay">
+        <div class="series-hero-text">
+          <p class="series-tag">Series 01</p>
+          <h2 class="series-name">Insulated<br>Drinkware</h2>
+          <p class="series-desc">Double-wall vacuum insulation. Cold stays cold for 24 hours. Hot holds for 12. Ten colorways, one standard.</p>
+        </div>
+      </div>
+    </div>
+    <div class="series-grid-wrap">
+      <div class="series-grid-header reveal"><div class="series-grid-header-left"><p class="series-count">10 colorways</p><p class="series-grid-title">Full Colorway Collection</p></div></div>
+      <div class="series-grid drinkware">
+        <div class="product-card reveal"><img src="https://static.wixstatic.com/media/8cc8c8_40a6c9808ba942ed952dd15c6c08ec30~mv2.jpg" alt="Lavender Field" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Lavender Field</span></div></div>
+        <div class="product-card reveal reveal-delay-1"><img src="https://static.wixstatic.com/media/8cc8c8_da59bf031f7c499ab0fda444657519b7~mv2.jpg" alt="Trail &amp; Summit" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Trail &amp; Summit</span></div></div>
+        <div class="product-card reveal reveal-delay-2"><img src="https://static.wixstatic.com/media/8cc8c8_e24b204505a9489883f33fb237002230~mv2.jpg" alt="Desert Bloom" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Desert Bloom</span></div></div>
+        <div class="product-card reveal reveal-delay-3"><img src="https://static.wixstatic.com/media/8cc8c8_81dbb89bd4a34250a84f5d2643586aa5~mv2.jpg" alt="Midnight Botanica" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Midnight Botanica</span></div></div>
+        <div class="product-card reveal reveal-delay-4"><img src="https://static.wixstatic.com/media/8cc8c8_cb0a7b2385584f72b24fe669f43e1eeb~mv2.jpg" alt="Citrus Bloom" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Citrus Bloom</span></div></div>
+        <div class="product-card reveal"><img src="https://static.wixstatic.com/media/8cc8c8_04cba09aa9354bfbbeb981171b42258b~mv2.jpg" alt="Palm Sunset" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Palm Sunset</span></div></div>
+        <div class="product-card reveal reveal-delay-1"><img src="https://static.wixstatic.com/media/8cc8c8_9ca46ec6f760434c885a1254c576f524~mv2.jpg" alt="Retro Meadow" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Retro Meadow</span></div></div>
+        <div class="product-card reveal reveal-delay-2"><img src="https://static.wixstatic.com/media/8cc8c8_89b123262c9d4a7fa8c5435b9ad3e6b6~mv2.jpg" alt="Meadow Daisies" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Meadow Daisies</span></div></div>
+        <div class="product-card reveal reveal-delay-3"><img src="https://static.wixstatic.com/media/8cc8c8_0ef1e2b989af4020b09e27d7cf74ee74~mv2.jpg" alt="Velocity Night" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Velocity Night</span></div></div>
+        <div class="product-card reveal reveal-delay-4"><img src="https://static.wixstatic.com/media/8cc8c8_71359a853aa6454c8d89a2cc0076588d~mv2.jpg" alt="Urban Circuit" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Urban Circuit</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="series-section">
+    <div class="series-hero reveal">
+      <img src="https://static.wixstatic.com/media/8cc8c8_03a61c283c0f4c75a8b8c3ecc9ecc1f4~mv2.jpg" alt="LOOPBOSS Kitchen Tools" class="series-hero-img" loading="lazy" />
+      <div class="series-hero-overlay">
+        <div class="series-hero-text">
+          <p class="series-tag">Series 02</p>
+          <h2 class="series-name">Kitchen<br>Tools</h2>
+          <p class="series-desc">Precision tools that cut prep time and stay sharp. Engineered for the cook who needs results, not novelty.</p>
+        </div>
+      </div>
+    </div>
+    <div class="series-grid-wrap dark">
+      <div class="series-grid-header reveal"><div class="series-grid-header-left"><p class="series-count">8 tools</p><p class="series-grid-title">Prep &amp; Prep Again</p></div></div>
+      <div class="series-grid kitchen">
+        <div class="product-card reveal"><img src="https://static.wixstatic.com/media/8cc8c8_557c6cd7a27e45a6b2432fe4d0f3cb05~mv2.jpg" alt="Jar Opener" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Jar Opener</span></div></div>
+        <div class="product-card reveal reveal-delay-1"><img src="https://static.wixstatic.com/media/8cc8c8_1da0a1ffc6cf46f8a9ae19f861fa1077~mv2.jpg" alt="Vegetable Slicer" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Vegetable Slicer</span></div></div>
+        <div class="product-card reveal reveal-delay-2"><img src="https://static.wixstatic.com/media/8cc8c8_4fcf9ffe519c432db1c78b98b13a536f~mv2.jpg" alt="Can Opener" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Can Opener</span></div></div>
+        <div class="product-card reveal reveal-delay-3"><img src="https://static.wixstatic.com/media/8cc8c8_b304d00d3ec54b288ad594c5535a2bc3~mv2.jpg" alt="Egg Shell Opener" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Egg Shell Opener</span></div></div>
+        <div class="product-card reveal reveal-delay-1"><img src="https://static.wixstatic.com/media/8cc8c8_faf90721e13e465684ba8ff0801fbb84~mv2.jpg" alt="Meat Tenderizer" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Meat Tenderizer</span></div></div>
+        <div class="product-card reveal reveal-delay-2"><img src="https://static.wixstatic.com/media/8cc8c8_8f5d936a9c0846c79910f7e71a8bde0d~mv2.jpg" alt="Fish Scaler" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Fish Scaler</span></div></div>
+        <div class="product-card reveal reveal-delay-3"><img src="https://static.wixstatic.com/media/8cc8c8_b57627c4475b4d90b94ab2c33d8c414d~mv2.jpg" alt="Rotary Slicer" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Rotary Slicer</span></div></div>
+        <div class="product-card reveal reveal-delay-4"><img src="https://static.wixstatic.com/media/8cc8c8_192b133dd53e4c9782f264c648c7adc5~mv2.jpg" alt="Digital Coffee Scale" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Digital Coffee Scale</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="series-section">
+    <div class="series-hero reveal">
+      <img src="https://static.wixstatic.com/media/8cc8c8_193d320d38144d2cbb8b7721b0290658~mv2.jpg" alt="LOOPBOSS Small Appliances" class="series-hero-img" loading="lazy" />
+      <div class="series-hero-overlay">
+        <div class="series-hero-text">
+          <p class="series-tag">Series 03</p>
+          <h2 class="series-name">Small<br>Appliances</h2>
+          <p class="series-desc">Compact power for every counter. From air fryer ovens to milk frothers — appliances that earn their space.</p>
+        </div>
+      </div>
+    </div>
+    <div class="series-grid-wrap">
+      <div class="series-grid-header reveal"><div class="series-grid-header-left"><p class="series-count">9 appliances</p><p class="series-grid-title">Counter-Ready Lineup</p></div></div>
+      <div class="series-grid appliances">
+        <div class="product-card reveal"><img src="https://static.wixstatic.com/media/8cc8c8_6a36ed3224a2490db6750ff575c0d138~mv2.jpg" alt="Air Fryer Oven" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Air Fryer Oven</span></div></div>
+        <div class="product-card reveal reveal-delay-1"><img src="https://static.wixstatic.com/media/8cc8c8_1c71e2c19b69479a9bd18fb29ee5932a~mv2.jpg" alt="Space Heater" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Space Heater</span></div></div>
+        <div class="product-card reveal reveal-delay-2"><img src="https://static.wixstatic.com/media/8cc8c8_ac44ebd6107745d1b06f0e0a22b7ca7f~mv2.jpg" alt="Milk Frother" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Milk Frother</span></div></div>
+        <div class="product-card reveal reveal-delay-3"><img src="https://static.wixstatic.com/media/8cc8c8_f918ddc9270545fcb9656e180faf16b8~mv2.jpg" alt="Oil Sprayer" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Oil Sprayer</span></div></div>
+        <div class="product-card reveal reveal-delay-1"><img src="https://static.wixstatic.com/media/8cc8c8_c8143b6b88ca4633a680687c8db2a67a~mv2.jpg" alt="Slice Toaster" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Slice Toaster</span></div></div>
+        <div class="product-card reveal reveal-delay-2"><img src="https://static.wixstatic.com/media/8cc8c8_0a2b3eb22aae494689df34d8c6f955ad~mv2.jpg" alt="Element Heater" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Element Heater</span></div></div>
+        <div class="product-card reveal reveal-delay-3"><img src="https://static.wixstatic.com/media/8cc8c8_ad36534231ae4171813159e38100fa38~mv2.jpg" alt="Cleaning Brush" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Cleaning Brush</span></div></div>
+        <div class="product-card reveal reveal-delay-4"><img src="https://static.wixstatic.com/media/8cc8c8_23495035f2ab4c3692a289e92fd4a54e~mv2.jpg" alt="Butter Maker" loading="lazy" /><div class="product-card-label"><span class="product-card-name">Butter Maker</span></div></div>
+        <div class="product-card reveal"><img src="https://static.wixstatic.com/media/8cc8c8_d6e6b89418f2431bb14d4763aab3ef6d~mv2.png" alt="12V Cordless Drain Cleaner" loading="lazy" /><div class="product-card-label"><span class="product-card-name">LOOPBOSS 12V Cordless Drain Cleaner</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packaging -->
+  <section style="padding:60px 5%;background:#1A1A1A;">
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#F5F5F0;text-align:center;margin-bottom:40px;font-weight:400;">Packaging &amp; Unboxing</h2>
+    <div style="max-width:700px;margin:0 auto;">
+      <img src="https://static.wixstatic.com/media/8cc8c8_83c678adaec148378a9b1ad7e331120c~mv2.jpg" alt="LOOPBOSS Packaging" style="width:100%;height:auto;object-fit:cover;border-radius:2px;">
+    </div>
+  </section>
+
+  <!-- Lifestyle Gallery -->
+  <section style="padding:60px 5%;background:#111;">
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#F5F5F0;text-align:center;margin-bottom:40px;font-weight:400;">Life With LOOPBOSS</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:900px;margin:0 auto;">
+      <img src="https://static.wixstatic.com/media/8cc8c8_f2b209f61d40441b81d0eb075cb9453c~mv2.jpg" alt="LOOPBOSS Lifestyle" style="width:100%;height:320px;object-fit:cover;border-radius:2px;">
+      <img src="https://static.wixstatic.com/media/8cc8c8_16810bea47534551a1b0cd7203347692~mv2.jpg" alt="LOOPBOSS Lifestyle" style="width:100%;height:320px;object-fit:cover;border-radius:2px;">
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section style="padding:60px 5%;background:#000;">
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#F5F5F0;text-align:center;margin-bottom:40px;font-weight:400;">LOOPBOSS In Action</h2>
+    <div style="max-width:400px;margin:0 auto;">
+      <video autoplay muted loop playsinline style="width:100%;height:auto;border-radius:2px;display:block;">
+        <source src="https://video.wixstatic.com/video/8cc8c8_20d69bab19f1457789e5b444d13396cd/file" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <section class="b2b-section section" id="b2b">
+    <div class="b2b-bg-pattern"></div>
+    <div class="b2b-inner">
+      <p class="b2b-eyebrow reveal">Wholesale &amp; Retail</p>
+      <h2 class="b2b-title reveal reveal-delay-1">Partner with LOOPBOSS</h2>
+      <p class="b2b-body reveal reveal-delay-2">Wholesale and retail partnerships welcome. MOQ flexible. Zhejiang supply chain, 20+ year factory relationships. Competitive pricing guaranteed.</p>
+      <div class="b2b-features reveal reveal-delay-3">
+        <div class="b2b-feature"><span class="b2b-feature-dot"></span>Flexible MOQ</div>
+        <div class="b2b-feature"><span class="b2b-feature-dot"></span>Zhejiang supply chain</div>
+        <div class="b2b-feature"><span class="b2b-feature-dot"></span>20+ year factory relationships</div>
+        <div class="b2b-feature"><span class="b2b-feature-dot"></span>Competitive pricing</div>
+        <div class="b2b-feature"><span class="b2b-feature-dot"></span>Private label available</div>
+      </div>
+      <div class="reveal reveal-delay-4" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center;">
+        <a href="index.html#contact" class="btn-yellow">Request a Quote</a>
+        <a href="https://vt.tiktok.com/ZTDb9aENk/?page=TikTokShop" target="_blank" rel="noopener noreferrer" style="display:inline-block;border:1.5px solid rgba(255,255,255,0.45);color:#ffffff;font-size:0.875rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:16px 40px;border-radius:2px;transition:border-color 0.2s,background 0.2s;">Shop on TikTok</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">LOOPBOSS<sup style="font-size:0.55em;">®</sup></div>
+          <p class="footer-brand-tag">Smarter Essentials for Everyday Life.<br>A TowerStream Interactive brand.</p>
+          <div class="footer-social">
+            <a href="https://www.tiktok.com/@shainewidirect" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.95a8.16 8.16 0 004.77 1.52V7.02a4.85 4.85 0 01-1-.33z"/></svg></a>
+            <a href="https://www.instagram.com/shainewistylestudio" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.linkedin.com/in/jaymen-henry-558a87239" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col"><p class="footer-col-title">Products</p><ul><li><a href="#products">Insulated Drinkware</a></li><li><a href="#products">Kitchen Tools</a></li><li><a href="#products">Small Appliances</a></li></ul></div>
+        <div class="footer-col"><p class="footer-col-title">Our Brands</p><ul><li><a href="shainewi.html">ShaiNewi</a></li><li><a href="tetchy.html">TETCHY</a></li><li><a href="loopboss.html">LOOPBOSS</a></li><li><a href="index.html">TowerStream</a></li></ul></div>
+        <div class="footer-col"><p class="footer-col-title">Partners</p><ul><li><a href="index.html#b2b">Wholesale</a></li><li><a href="index.html#creators">Creators</a></li><li><a href="faq.html">FAQ</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 TowerStream Interactive, LLC. All rights reserved.</p>
+        <div class="footer-email"><a href="mailto:jaymen@twrstream.com">jaymen@twrstream.com</a></div>
+        <div style="display:flex;gap:20px;"><a href="privacy.html" style="font-size:0.75rem;color:rgba(250,250,248,0.28);transition:color 0.2s;">Privacy Policy</a><a href="privacy.html#tab-terms" style="font-size:0.75rem;color:rgba(250,250,248,0.28);transition:color 0.2s;">Terms</a><a href="faq.html" style="font-size:0.75rem;color:rgba(250,250,248,0.28);transition:color 0.2s;">FAQ</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="back-top" id="backTop" role="button" aria-label="Back to top" tabindex="0"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+    const heroBg = document.getElementById('heroBg');
+    const heroImg = new Image();
+    heroImg.src = 'https://static.wixstatic.com/media/8cc8c8_4985067b6c9b4a22937570373fb08bef~mv2.jpg';
+    heroImg.onload = () => { heroBg.style.backgroundImage = "url('" + heroImg.src + "')"; requestAnimationFrame(() => heroBg.classList.add('loaded')); };
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => { navLinks.classList.toggle('open'); });
+    const backTop = document.getElementById('backTop');
+    window.addEventListener('scroll', () => { backTop.classList.toggle('visible', window.scrollY > 500); }, { passive: true });
+    backTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    backTop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); } });
+    const navEl = document.querySelector('nav');
+    window.addEventListener('scroll', () => { navEl.style.boxShadow = window.scrollY > 10 ? '0 2px 24px rgba(0,0,0,0.08)' : 'none'; }, { passive: true });
+  </script>
+
+<!-- Cookie Notice -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1A1A1A;color:rgba(250,250,248,0.85);padding:20px 32px;z-index:9999;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;border-top:1px solid rgba(184,147,106,0.3);">
+  <p style="margin:0;font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:300;line-height:1.6;max-width:700px;">We use cookies to improve your experience and analyze site traffic. By continuing to browse, you agree to our <a href="privacy.html" style="color:#B8936A;text-decoration:underline;">Cookie Policy</a>.</p>
+  <button onclick="acceptCookies()" style="background:#B8936A;color:#fff;border:none;padding:12px 28px;font-family:'Inter',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;border-radius:2px;cursor:pointer;white-space:nowrap;flex-shrink:0;">Accept</button>
+</div>
+<script>
+  function acceptCookies() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+  window.addEventListener('DOMContentLoaded', function() {
+    if (!localStorage.getItem('cookiesAccepted')) {
+      document.getElementById('cookie-banner').style.display = 'flex';
+    }
+  });
+</script>
+</body>
+</html>

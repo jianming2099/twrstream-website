@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy & Legal — TowerStream Interactive</title>
+  <link rel="icon" type="image/png" href="twrstream-badge-social.png">
+  <link rel="apple-touch-icon" href="twrstream-badge-social.png">
+  <link rel="canonical" href="https://twrstream.com/privacy.html">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KBMY59VPJH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KBMY59VPJH');
+  </script>
+  <meta name="description" content="Privacy Policy, Terms of Service, and Cookie Notice for TowerStream Interactive, LLC." />
+  <meta property="og:title" content="Privacy Policy — TowerStream Interactive" />
+  <meta property="og:description" content="Privacy Policy, Terms of Service, and Cookie Notice for TowerStream Interactive, LLC." />
+  <meta property="og:image" content="https://static.wixstatic.com/media/8cc8c8_16ce5cdd9014454baeca3ef9dec41856~mv2.jpg" />
+  <meta property="og:url" content="https://twrstream.com/privacy.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Inter', sans-serif; background: #FAFAF8; color: #1A1A1A; overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    :root {
+      --bg: #FAFAF8; --ink: #1A1A1A; --stone: #8C8070; --brass: #B8936A; --deep: #111111;
+      --border: rgba(26,26,26,0.12); --max: 1200px; --px: clamp(24px, 5vw, 80px);
+    }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--px); height: 68px; background: rgba(250,250,248,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 600; letter-spacing: 0.08em; color: var(--ink); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a { font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--brass); }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 4px; cursor: pointer; }
+    .dropdown-arrow { display: inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 5px solid currentColor; transition: transform 0.2s; }
+    .nav-dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+    .dropdown-menu { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #fff; border: 1px solid var(--border); border-radius: 4px; min-width: 160px; padding: 8px 0; box-shadow: 0 8px 32px rgba(0,0,0,0.10); }
+    .nav-dropdown:hover .dropdown-menu { display: block; }
+    .dropdown-menu a { display: block; padding: 10px 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; transition: background 0.15s, color 0.15s; }
+    .dropdown-menu a:hover { background: #F5F3EF; color: var(--brass); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-toggle span { display: block; width: 24px; height: 1.5px; background: var(--ink); transition: transform 0.3s, opacity 0.3s; }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 24px var(--px) 32px; z-index: 99; flex-direction: column; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { display: block; padding: 14px 0; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 1px solid var(--border); color: var(--ink); }
+    .mobile-menu a.sub { padding-left: 20px; color: var(--stone); font-size: 0.82rem; }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    .page-header { padding: 140px var(--px) 72px; background: var(--deep); border-bottom: 1px solid rgba(184,147,106,0.18); }
+    .page-header-inner { max-width: var(--max); margin: 0 auto; }
+    .page-header-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass); margin-bottom: 16px; }
+    .page-header-h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 500; color: #FAFAF8; line-height: 1.1; margin-bottom: 20px; }
+    .page-header-sub { font-size: 0.9rem; font-weight: 300; color: rgba(250,250,248,0.55); line-height: 1.7; max-width: 520px; }
+
+    .tab-nav { position: sticky; top: 68px; z-index: 50; background: rgba(250,250,248,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+    .tab-nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--px); display: flex; gap: 0; }
+    .tab-btn { padding: 18px 28px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); border-bottom: 2px solid transparent; cursor: pointer; background: none; border-top: none; border-left: none; border-right: none; font-family: 'Inter', sans-serif; transition: color 0.2s, border-color 0.2s; }
+    .tab-btn:hover { color: var(--ink); }
+    .tab-btn.active { color: var(--ink); border-bottom-color: var(--brass); }
+
+    .legal-section { display: none; }
+    .legal-section.active { display: block; }
+    .legal-body { max-width: var(--max); margin: 0 auto; padding: 72px var(--px) 100px; }
+    .legal-updated { font-size: 0.78rem; color: var(--stone); margin-bottom: 48px; letter-spacing: 0.04em; }
+    .legal-intro { font-size: 1.05rem; font-weight: 300; line-height: 1.85; color: var(--stone); margin-bottom: 52px; max-width: 720px; }
+    .legal-article { margin-bottom: 52px; }
+    .legal-article:last-child { margin-bottom: 0; }
+    .legal-article h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--ink); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .legal-article p { font-size: 0.92rem; font-weight: 300; line-height: 1.85; color: var(--stone); margin-bottom: 14px; }
+    .legal-article p:last-child { margin-bottom: 0; }
+    .legal-article ul { margin: 12px 0 14px 0; display: flex; flex-direction: column; gap: 8px; }
+    .legal-article ul li { font-size: 0.92rem; font-weight: 300; line-height: 1.75; color: var(--stone); padding-left: 18px; position: relative; }
+    .legal-article ul li::before { content: ''; position: absolute; left: 0; top: 10px; width: 5px; height: 5px; border-radius: 50%; background: var(--brass); }
+    .legal-article a { color: var(--brass); text-decoration: underline; text-underline-offset: 3px; }
+    .legal-article h3 { font-size: 0.95rem; font-weight: 600; color: var(--ink); margin: 24px 0 10px; letter-spacing: 0.03em; }
+
+    .cookie-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.88rem; }
+    .cookie-table th { text-align: left; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brass); padding: 10px 16px; border-bottom: 1px solid var(--border); }
+    .cookie-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); color: var(--stone); font-weight: 300; line-height: 1.6; vertical-align: top; }
+    .cookie-table tr:last-child td { border-bottom: none; }
+
+    footer { background: #0B0B0B; color: rgba(250,250,248,0.55); padding: 72px var(--px) 32px; }
+    .footer-inner { max-width: var(--max); margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 2fr; gap: 48px; padding-bottom: 56px; border-bottom: 1px solid rgba(250,250,248,0.08); }
+    .footer-col h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 500; color: #FAFAF8; margin-bottom: 6px; }
+    .footer-col .footer-entity { font-size: 0.78rem; color: rgba(250,250,248,0.35); margin-bottom: 20px; }
+    .footer-col h4 { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(250,250,248,0.4); margin-bottom: 16px; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { font-size: 0.85rem; font-weight: 300; color: rgba(250,250,248,0.55); transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--brass); }
+    .footer-contact-detail { font-size: 0.85rem; font-weight: 300; line-height: 1.8; color: rgba(250,250,248,0.55); }
+    .footer-contact-detail a { color: rgba(250,250,248,0.55); transition: color 0.2s; }
+    .footer-contact-detail a:hover { color: var(--brass); }
+    .footer-social { display: flex; gap: 12px; margin-top: 20px; }
+    .social-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(250,250,248,0.15); border-radius: 2px; transition: border-color 0.2s, background 0.2s; }
+    .social-icon:hover { border-color: var(--brass); background: rgba(184,147,106,0.12); }
+    .social-icon svg { width: 15px; height: 15px; fill: rgba(250,250,248,0.55); transition: fill 0.2s; }
+    .social-icon:hover svg { fill: var(--brass); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 28px; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-size: 0.75rem; color: rgba(250,250,248,0.28); }
+    .footer-bottom-links { display: flex; gap: 24px; }
+    .footer-bottom-links a { font-size: 0.75rem; color: rgba(250,250,248,0.28); transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: var(--brass); }
+
+    @media (max-width: 1024px) { .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; } }
+    @media (max-width: 768px) { .nav-links { display: none; } .nav-toggle { display: flex; } .tab-btn { padding: 14px 16px; font-size: 0.72rem; } .footer-top { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">TWR STREAM</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li class="nav-dropdown">
+        <a href="index.html#brands">Brands <span class="dropdown-arrow"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="tetchy.html">TETCHY</a></li>
+          <li><a href="loopboss.html">LOOPBOSS</a></li>
+          <li><a href="shainewi.html">ShaiNewi</a></li>
+        </ul>
+      </li>
+      <li><a href="wholesale.html">Wholesale</a></li>
+      <li><a href="b2b.html">B2B Partners</a></li>
+      <li><a href="creators.html">Creators</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="privacy.html" class="active">Privacy</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#about" onclick="closeMobile()">About</a>
+    <a href="index.html#brands" onclick="closeMobile()">Brands</a>
+    <a href="tetchy.html" class="sub">— TETCHY</a>
+    <a href="loopboss.html" class="sub">— LOOPBOSS</a>
+    <a href="shainewi.html" class="sub">— ShaiNewi</a>
+    <a href="wholesale.html" onclick="closeMobile()">Wholesale</a>
+    <a href="b2b.html" onclick="closeMobile()">B2B Partners</a>
+    <a href="creators.html" onclick="closeMobile()">Creators</a>
+    <a href="blog.html" onclick="closeMobile()">Blog</a>
+    <a href="faq.html" onclick="closeMobile()">FAQ</a>
+    <a href="privacy.html" onclick="closeMobile()">Privacy</a>
+  </div>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <p class="page-header-label">Legal</p>
+      <h1 class="page-header-h1">Privacy &amp; Legal</h1>
+      <p class="page-header-sub">TowerStream Interactive, LLC is committed to transparent data practices and clear terms of use. Last reviewed September 2026.</p>
+    </div>
+  </div>
+
+  <div class="tab-nav">
+    <div class="tab-nav-inner">
+      <button class="tab-btn active" data-tab="privacy">Privacy Policy</button>
+      <button class="tab-btn" data-tab="terms">Terms of Service</button>
+      <button class="tab-btn" data-tab="cookies">Cookie Notice</button>
+    </div>
+  </div>
+
+  <div class="legal-section active" id="tab-privacy">
+    <div class="legal-body">
+      <p class="legal-updated">Effective date: September 1, 2026 &nbsp;·&nbsp; Last updated: September 1, 2026</p>
+      <p class="legal-intro">TowerStream Interactive, LLC ("TowerStream," "we," "our," or "us") operates twrstream.com and the websites of our brands TETCHY, LOOPBOSS, and ShaiNewi. This Privacy Policy explains what information we collect, how we use it, and your rights in relation to it.</p>
+
+      <div class="legal-article">
+        <h2>1. Information We Collect</h2>
+        <h3>Information you provide directly</h3>
+        <p>When you fill out a contact form, submit a wholesale inquiry, or apply for a creator collaboration, we collect:</p>
+        <ul><li>Name and email address</li><li>Company or channel name (if provided)</li><li>Your message content and stated purpose</li><li>Any other information you voluntarily include</li></ul>
+        <h3>Information collected automatically</h3>
+        <p>When you visit our websites, we may automatically collect certain technical data including IP address, browser type and version, pages visited and time spent, referring URL, and device type. We use Google Analytics to help us understand how visitors use our site. This data is aggregated and does not identify you personally.</p>
+      </div>
+
+      <div class="legal-article">
+        <h2>2. How We Use Your Information</h2>
+        <p>We use the information we collect to:</p>
+        <ul><li>Respond to your inquiries and evaluate partnership or collaboration requests</li><li>Process wholesale orders and trade communications</li><li>Improve our websites and understand how they are used</li><li>Comply with applicable legal obligations</li></ul>
+        <p>We do not sell, rent, or trade your personal information to third parties for marketing purposes.</p>
+      </div>
+
+      <div class="legal-article">
+        <h2>3. Legal Basis for Processing (EEA / UK Visitors)</h2>
+        <p>If you are located in the European Economic Area or the United Kingdom, we process your personal data on the following legal bases:</p>
+        <ul><li><strong>Legitimate interests</strong> — to respond to business inquiries and evaluate partnership opportunities</li><li><strong>Contract performance</strong> — to fulfill obligations under a wholesale or trade agreement</li><li><strong>Legal obligation</strong> — where processing is required by applicable law</li><li><strong>Consent</strong> — where you have given explicit consent</li></ul>
+      </div>
+
+      <div class="legal-article">
+        <h2>4. Data Retention</h2>
+        <p>We retain personal data only as long as necessary for the purposes described in this policy or as required by law. Inquiry data is generally retained for up to 24 months. Active trade partner records are retained for the duration of the relationship plus applicable statutory periods.</p>
+      </div>
+
+      <div class="legal-article">
+        <h2>5. Third-Party Services</h2>
+        <p>We use the following third-party services, which may process data on our behalf:</p>
+        <ul><li><strong>Google Analytics</strong> — website usage analytics (Google LLC)</li><li><strong>Google Fonts</strong> — typeface delivery (Google LLC)</li><li><strong>Wix</strong> — website hosting and infrastructure</li></ul>
+        <p>Each of these providers operates under their own privacy policies and data processing agreements.</p>
+      </div>
+
+      <div class="legal-article">
+        <h2>6. International Data Transfers</h2>
+        <p>TowerStream Interactive, LLC is incorporated in the United States. If you are accessing our sites from the EEA, UK, or other regions with data protection laws, please be aware that your information may be transferred to and processed in the United States.</p>
+      </div>
+
+      <div class="legal-article">
+        <h2>7. Your Rights</h2>
+        <p>Depending on your location, you may have the right to access, correct, delete, or port your personal data, or to object to or restrict certain processing. To exercise any of these rights, contact us at <a href="mailto:jaymen@twrstream.com">jaymen@twrstream.com</a>. We will respond within 30 days.</p>
+      </div>
+
+      <div class="legal-article">
+        <h2>8. Security</h2>
+        <p>We use reasonable administrative and technical measures to protect your information. However, no internet transmission is completely secure.</p>
+      </div>
+
+      <div class="legal-article">
+        <h2>9. Children's Privacy</h2>
+        <p>Our websites are not directed to individuals under the age of 16. We do not knowingly collect personal data from minors.</p>
+      </div>
+
+      <div class="legal-article">
+        <h2>10. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with a revised effective date.</p>
+      </div>
+
+      <div class="legal-article">
+        <h2>11. Contact</h2>
+        <p>TowerStream Interactive, LLC<br />Email: <a href="mailto:jaymen@twrstream.com">jaymen@twrstream.com</a><br />Website: <a href="https://twrstream.com" target="_blank" rel="noopener noreferrer">twrstream.com</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="legal-section" id="tab-terms">
+    <div class="legal-body">
+      <p class="legal-updated">Effective date: September 1, 2026 &nbsp;·&nbsp; Last updated: September 1, 2026</p>
+      <p class="legal-intro">These Terms of Service govern your access to and use of twrstream.com and the brand websites operated by TowerStream Interactive, LLC. By accessing these sites, you agree to these terms.</p>
+
+      <div class="legal-article">
+        <h2>1. About TowerStream Interactive</h2>
+        <p>TowerStream Interactive, LLC is a US-registered trade company operating three independent consumer brands: TETCHY, LOOPBOSS, and ShaiNewi. Our websites are informational and commercial platforms intended for wholesale buyers, trade partners, content creators, and general visitors.</p>
+      </div>
+
+      <div class="legal-article">
+        <h2>2. Use of the Site</h2>
+        <p>You may use our websites for lawful purposes only. You agree not to use the site in any way that violates applicable law, transmit unauthorized advertising, attempt unauthorized access, use automated scraping tools without consent, or misrepresent your identity when submitting inquiries or forms.</p>
+      </div>
+
+      <div class="legal-article">
+        <h2>3. Intellectual Property</h2>
+        <p>All content on our websites — including brand names, logos, photography, copy, and design — is the property of TowerStream Interactive, LLC or its licensors. The brand names TETCHY, LOOPBOSS, and ShaiNewi are trademarks of TowerStream Interactive, LLC.</p>
+      </div>
+
+      <div class="legal-article">
+        <h2>4. Trade Inquiries and Wholesale Agreements</h2>
+        <p>Submitting a wholesale inquiry or creator application does not constitute a binding agreement. All trade relationships are formalized through separate written agreements. Pricing and terms communicated through our sites are indicative and subject to change.</p>
+      </div>
+
+      <div class="legal-article">
+        <h2>5. Third-Party Links</h2>
+        <p>Our sites may link to third-party platforms including TikTok Shop, Amazon, and social media profiles. We are not responsible for their content or privacy practices.</p>
+      </div>
+
+      <div class="legal-article">
+        <h2>6. Disclaimer of Warranties</h2>
+        <p>Our websites are provided "as is" and "as available" without any warranties of any kind, express or implied.</p>
+      </div>
+
+      <div class="legal-article">
+        <h2>7. Limitation of Liability</h2>
+        <p>To the fullest extent permitted by law, TowerStream Interactive, LLC shall not be liable for any indirect, incidental, special, or consequential damages arising out of your use of our websites.</p>
+      </div>
+
+      <div class="legal-article">
+        <h2>8. Governing Law</h2>
+        <p>These Terms of Service are governed by the laws of the United States and the state in which TowerStream Interactive, LLC is incorporated.</p>
+      </div>
+
+      <div class="legal-article">
+        <h2>9. Changes to These Terms</h2>
+        <p>We may revise these Terms of Service at any time. Continued use of our sites after any revision constitutes acceptance of the updated terms.</p>
+      </div>
+
+      <div class="legal-article">
+        <h2>10. Contact</h2>
+        <p>TowerStream Interactive, LLC<br />Email: <a href="mailto:jaymen@twrstream.com">jaymen@twrstream.com</a><br />Website: <a href="https://twrstream.com" target="_blank" rel="noopener noreferrer">twrstream.com</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="legal-section" id="tab-cookies">
+    <div class="legal-body">
+      <p class="legal-updated">Effective date: September 1, 2026 &nbsp;·&nbsp; Last updated: September 1, 2026</p>
+      <p class="legal-intro">This Cookie Notice explains how TowerStream Interactive, LLC uses cookies and similar tracking technologies on twrstream.com and our brand websites.</p>
+
+      <div class="legal-article">
+        <h2>What Are Cookies</h2>
+        <p>Cookies are small text files placed on your device when you visit a website. They help the site remember your preferences, understand how you use the site, and improve your experience over time.</p>
+      </div>
+
+      <div class="legal-article">
+        <h2>Cookies We Use</h2>
+        <table class="cookie-table">
+          <thead><tr><th>Category</th><th>Purpose</th><th>Provider</th><th>Duration</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Essential</strong></td><td>Required for the site to function correctly. These cannot be disabled.</td><td>TowerStream / Wix</td><td>Session</td></tr>
+            <tr><td><strong>Analytics</strong></td><td>Help us understand how visitors navigate the site. Data is aggregated and anonymized.</td><td>Google Analytics</td><td>Up to 2 years</td></tr>
+            <tr><td><strong>Performance</strong></td><td>Allow us to measure site performance and improve loading speeds.</td><td>Google / Wix</td><td>Up to 1 year</td></tr>
+            <tr><td><strong>Font delivery</strong></td><td>Load typefaces from Google Fonts.</td><td>Google Fonts</td><td>Session / 1 year</td></tr>
+          </tbody>
+        </table>
+        <p>We do not currently use advertising or targeting cookies.</p>
+      </div>
+
+      <div class="legal-article">
+        <h2>Managing Cookies</h2>
+        <p>You can control cookies through your browser settings. For Google Analytics specifically, you can opt out using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics Opt-out Browser Add-on</a>.</p>
+      </div>
+
+      <div class="legal-article">
+        <h2>Contact</h2>
+        <p>Questions about our cookie practices? Contact us at <a href="mailto:jaymen@twrstream.com">jaymen@twrstream.com</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-col">
+          <h3>TWR STREAM</h3>
+          <p class="footer-entity">TowerStream Interactive, LLC</p>
+          <p class="footer-contact-detail"><a href="mailto:jaymen@twrstream.com">jaymen@twrstream.com</a><br />Available worldwide<br />USD / EUR / GBP</p>
+          <div class="footer-social">
+            <a href="https://www.tiktok.com/@shainewidirect" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34v-7a8.16 8.16 0 004.77 1.52V6.37a4.85 4.85 0 01-1-.12z"/></svg></a>
+            <a href="https://www.instagram.com/shainewistylestudio" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="https://www.linkedin.com/in/jaymen-henry-558a87239" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col"><h4>Brands</h4><ul><li><a href="shainewi.html">ShaiNewi</a></li><li><a href="tetchy.html">TETCHY</a></li><li><a href="loopboss.html">LOOPBOSS</a></li></ul></div>
+        <div class="footer-col"><h4>Work With Us</h4><ul><li><a href="wholesale.html">Wholesale</a></li><li><a href="b2b.html">B2B Partners</a></li><li><a href="creators.html">Creators</a></li><li><a href="faq.html">FAQ</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+        <div class="footer-col"><h4>Contact</h4><p class="footer-contact-detail"><a href="mailto:jaymen@twrstream.com">jaymen@twrstream.com</a><br />Available worldwide<br />Remote delivery<br />USD / EUR / GBP</p></div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 TowerStream Interactive, LLC. All rights reserved.</p>
+        <div class="footer-bottom-links"><a href="privacy.html">Privacy Policy</a><a href="privacy.html#tab-terms">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabSections = document.querySelectorAll('.legal-section');
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabSections.forEach(s => s.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+      });
+    });
+    const hash = location.hash.replace('#tab-', '');
+    if (hash) { const target = document.querySelector('[data-tab="' + hash + '"]'); if (target) target.click(); }
+    const toggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function closeMobile() { toggle.classList.remove('open'); mobileMenu.classList.remove('open'); }
+    toggle.addEventListener('click', () => { toggle.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  </script>
+
+<!-- Cookie Notice -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1A1A1A;color:rgba(250,250,248,0.85);padding:20px 32px;z-index:9999;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;border-top:1px solid rgba(184,147,106,0.3);">
+  <p style="margin:0;font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:300;line-height:1.6;max-width:700px;">We use cookies to improve your experience and analyze site traffic. By continuing to browse, you agree to our <a href="privacy.html" style="color:#B8936A;text-decoration:underline;">Cookie Policy</a>.</p>
+  <button onclick="acceptCookies()" style="background:#B8936A;color:#fff;border:none;padding:12px 28px;font-family:'Inter',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;border-radius:2px;cursor:pointer;white-space:nowrap;flex-shrink:0;">Accept</button>
+</div>
+<script>
+  function acceptCookies() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+  window.addEventListener('DOMContentLoaded', function() {
+    if (!localStorage.getItem('cookiesAccepted')) {
+      document.getElementById('cookie-banner').style.display = 'flex';
+    }
+  });
+</script>
+</body>
+</html>
