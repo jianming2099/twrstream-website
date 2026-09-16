@@ -21,9 +21,10 @@ export default async (_request: Request, context: any) => {
   if (description && !/name=["']twitter:description["']/i.test(html)) meta.push(`<meta name="twitter:description" content="${attr(description)}">`);
   if (meta.length && /<\/head>/i.test(html)) html = html.replace(/<\/head>/i, `${meta.join("")}\n</head>`);
 
-  if (!html.includes("assets/customer-service.js") && /<\/body>/i.test(html)) {
-    html = html.replace(/<\/body>/i, '<script src="/assets/customer-service.js" defer></script></body>');
-  }
+  const scripts: string[] = [];
+  if (!html.includes("assets/customer-service.js")) scripts.push('<script src="/assets/customer-service.js" defer></script>');
+  if (!html.includes("assets/site-footer-social.js")) scripts.push('<script src="/assets/site-footer-social.js" defer></script>');
+  if (scripts.length && /<\/body>/i.test(html)) html = html.replace(/<\/body>/i, `${scripts.join("")}\n</body>`);
 
   const headers = new Headers(response.headers);
   headers.delete("content-length");
