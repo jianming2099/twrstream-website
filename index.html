@@ -55,20 +55,35 @@
     .mobile-menu{display:none;position:fixed;z-index:99;top:72px;left:0;right:0;background:var(--paper);padding:16px var(--pad) 28px;border-bottom:1px solid var(--line)}
     .mobile-menu.open{display:block}.mobile-menu a{display:block;padding:12px 0;border-bottom:1px solid var(--line);font-size:.82rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase}
     .hero{position:relative;min-height:100svh;display:flex;align-items:center;color:#fff;background:#111;overflow:hidden}
-    .hero-bg{position:absolute;inset:0;background:url("https://static.wixstatic.com/media/8cc8c8_9960a9416cc645e69f7c874e3ec49698~mv2.jpg") center/cover no-repeat;transform:scale(1.02)}
-    .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,9,8,.88),rgba(9,9,8,.48) 58%,rgba(9,9,8,.25))}
+    .hero-bg{position:absolute;inset:0;background:
+      radial-gradient(circle at 78% 24%,rgba(169,131,89,.30),transparent 28%),
+      radial-gradient(circle at 68% 74%,rgba(52,71,60,.34),transparent 34%),
+      linear-gradient(120deg,#0d0f0d 0%,#171914 58%,#262119 100%);overflow:hidden}
+    .hero-bg::before{content:"";position:absolute;inset:-20%;background:
+      repeating-linear-gradient(90deg,transparent 0,transparent 119px,rgba(255,255,255,.035) 120px),
+      repeating-linear-gradient(0deg,transparent 0,transparent 119px,rgba(255,255,255,.025) 120px);
+      transform:rotate(-8deg)}
+    .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,9,8,.78),rgba(9,9,8,.16))}
     .hero-content{position:relative;z-index:1;padding-top:120px;padding-bottom:70px}
     .hero .eyebrow{color:#d0ad83}.hero h1{max-width:930px;font-size:clamp(3.15rem,7.7vw,7.6rem)}
     .hero h1 em{color:#d0ad83}.hero-copy{font-size:clamp(1.05rem,1.7vw,1.3rem);max-width:700px;color:rgba(255,255,255,.76);margin:28px 0 40px}
     .hero-actions{display:flex;flex-wrap:wrap;gap:12px}.hero-note{position:absolute;z-index:1;right:var(--pad);bottom:34px;font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.54)}
+    .capability-strip{background:#fff;border-bottom:1px solid var(--line)}
+    .capability-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+    .capability{padding:24px 22px;border-right:1px solid var(--line);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-align:center}
+    .capability:last-child{border-right:0}
     #worlds{background:#ece9e2}
     .world-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
     .world{position:relative;min-height:650px;overflow:hidden;color:#fff;display:flex;align-items:flex-end}
     .world-bg{position:absolute;inset:0;background-position:center;background-size:cover;transition:transform .65s ease}
     .world:hover .world-bg{transform:scale(1.035)}
     .world::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,9,.88),rgba(10,10,9,.05) 70%)}
-    .world-utility .world-bg{background-image:url("https://static.wixstatic.com/media/8cc8c8_4985067b6c9b4a22937570373fb08bef~mv2.jpg")}
-    .world-life .world-bg{background-image:url("https://static.wixstatic.com/media/8cc8c8_0a2d76b7d2094d98b6e958d8ecbb2f14~mv2.jpg");background-position:center 20%}
+    .world-utility .world-bg{background:
+      radial-gradient(circle at 78% 20%,rgba(255,255,255,.13),transparent 25%),
+      linear-gradient(135deg,#26352e,#4f6659)}
+    .world-life .world-bg{background:
+      radial-gradient(circle at 78% 20%,rgba(255,255,255,.16),transparent 25%),
+      linear-gradient(135deg,#694843,#a8796f)}
     .world-content{position:relative;z-index:1;padding:clamp(30px,5vw,58px)}
     .world-no{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.62)}
     .world h3{font-family:var(--serif);font-size:clamp(2.25rem,4vw,4rem);font-weight:500;line-height:1.05;margin:14px 0}
@@ -99,11 +114,13 @@
     .insight-type{font-size:.69rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
     .insight h3{font-family:var(--serif);font-size:1.65rem;font-weight:500;line-height:1.18;margin:20px 0 12px}
     .insight p{font-size:.9rem;color:var(--muted)}.read{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
-    #partners{padding:0;background:#fff}
-    .partners-grid{display:grid;grid-template-columns:1fr 1fr;min-height:680px}
-    .partner-image{background:url("https://static.wixstatic.com/media/8cc8c8_0a2d76b7d2094d98b6e958d8ecbb2f14~mv2.jpg") center 20%/cover no-repeat}
-    .partner-copy{padding:clamp(62px,9vw,130px);display:flex;flex-direction:column;justify-content:center}
-    .partner-copy .lead{margin:24px 0 36px}
+    #partners{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .partners-grid{display:flex;align-items:center;justify-content:space-between;gap:50px;min-height:0;padding:54px 0}
+    .partner-image{display:none}
+    .partner-copy{padding:0;display:grid;grid-template-columns:.9fr 1.2fr auto;gap:clamp(24px,5vw,70px);align-items:center;width:100%}
+    .partner-copy .eyebrow{margin:0}
+    .partner-copy .display{font-size:clamp(1.55rem,2.6vw,2.6rem)}
+    .partner-copy .lead{margin:0;font-size:.98rem}
     #cta{background:#9a744e;color:#fff;text-align:center}
     #cta .shell{padding:clamp(86px,11vw,140px) 0}.cta-title{font-family:var(--serif);font-size:clamp(2.8rem,6vw,6rem);font-weight:500;line-height:1.02;max-width:900px;margin:0 auto 26px}
     .cta-copy{color:rgba(255,255,255,.75);max-width:650px;margin:0 auto 36px}
@@ -121,8 +138,8 @@
     .footer-logo{font-family:var(--serif);font-size:1.4rem;color:#fff;letter-spacing:.07em;margin-bottom:12px}.footer-col h4{font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:#d0ad83;margin-bottom:16px}
     .footer-col a{display:block;font-size:.84rem;margin-bottom:9px}.footer-col a:hover{color:#d0ad83}.footer-col p{font-size:.84rem}
     .footer-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.1);padding-top:26px;font-size:.72rem}
-    @media(max-width:1100px){.nav-links{display:none}.menu-btn{display:block}.section-head,.source-grid,.digital-layout,.quote-grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.step:nth-child(2){border-right:0}.step:nth-child(-n+2){border-bottom:1px solid var(--line)}.footer-grid{grid-template-columns:1fr 1fr}}
-    @media(max-width:760px){.hero{min-height:850px}.hero-note{display:none}.world-grid,.partners-grid,.insight-grid{grid-template-columns:1fr}.world{min-height:540px}.steps{grid-template-columns:1fr}.step,.step:nth-child(2){border-right:0;border-bottom:1px solid var(--line)}.step:last-child{border-bottom:0}.source-points{grid-template-columns:1fr}.source-point,.source-point:nth-child(2n),.source-point:nth-last-child(-n+2){border-right:0;border-bottom:1px solid rgba(255,255,255,.14)}.source-point:last-child{border-bottom:0}.partner-image{min-height:480px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.service{grid-template-columns:36px 1fr}.service small{display:none}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column}}
+    @media(max-width:1100px){.capability-grid{grid-template-columns:1fr 1fr}.capability:nth-child(2){border-right:0}.capability:nth-child(-n+2){border-bottom:1px solid var(--line)}.partner-copy{grid-template-columns:1fr}.partner-copy .lead{margin:0}.nav-links{display:none}.menu-btn{display:block}.section-head,.source-grid,.digital-layout,.quote-grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.step:nth-child(2){border-right:0}.step:nth-child(-n+2){border-bottom:1px solid var(--line)}.footer-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:760px){.capability-grid{grid-template-columns:1fr}.capability,.capability:nth-child(2){border-right:0;border-bottom:1px solid var(--line)}.capability:last-child{border-bottom:0}.hero{min-height:850px}.hero-note{display:none}.world-grid,.partners-grid,.insight-grid{grid-template-columns:1fr}.world{min-height:540px}.steps{grid-template-columns:1fr}.step,.step:nth-child(2){border-right:0;border-bottom:1px solid var(--line)}.step:last-child{border-bottom:0}.source-points{grid-template-columns:1fr}.source-point,.source-point:nth-child(2n),.source-point:nth-last-child(-n+2){border-right:0;border-bottom:1px solid rgba(255,255,255,.14)}.source-point:last-child{border-bottom:0}.partner-image{min-height:480px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.service{grid-template-columns:36px 1fr}.service small{display:none}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
   </style>
 </head>
@@ -132,8 +149,8 @@
       <a class="logo" href="#hero">TWR STREAM</a>
       <nav aria-label="Primary">
         <ul class="nav-links">
-          <li><a href="#utility">Home & Utility</a></li>
-          <li><a href="#lifestyle">Accessories & Lifestyle</a></li>
+          <li><a href="home-utility.html">Home & Utility</a></li>
+          <li><a href="accessories-lifestyle.html">Accessories & Lifestyle</a></li>
           <li><a href="#sourcing">Sourcing & OEM</a></li>
           <li><a href="#digital">Digital Sales</a></li>
           <li><a href="#partners">Creators</a></li>
@@ -146,7 +163,7 @@
     </div>
   </header>
   <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
-    <a href="#utility">Home & Utility</a><a href="#lifestyle">Accessories & Lifestyle</a>
+    <a href="home-utility.html">Home & Utility</a><a href="accessories-lifestyle.html">Accessories & Lifestyle</a>
     <a href="#sourcing">Sourcing & OEM</a><a href="#digital">Digital Sales</a>
     <a href="#partners">Creators</a><a href="#insights">Insights</a><a href="#about">About</a><a href="#quote">Contact</a>
   </nav>
@@ -166,6 +183,15 @@
       <p class="hero-note">Discover · Source · Develop · Sell</p>
     </section>
 
+    <aside class="capability-strip" aria-label="Core capabilities">
+      <div class="capability-grid shell">
+        <div class="capability">China Sourcing Network</div>
+        <div class="capability">OEM &amp; Private Label</div>
+        <div class="capability">Export Support</div>
+        <div class="capability">Digital Sales Enablement</div>
+      </div>
+    </aside>
+
     <section class="section" id="worlds">
       <div class="shell">
         <div class="section-head">
@@ -178,9 +204,9 @@
             <div class="world-content">
               <span class="world-no">Product World 01</span>
               <h3>Home & Utility</h3>
-              <p>Practical products built around everyday use, reliable manufacturing and scalable supply.</p>
+              <p>Practical products for everyday use and retail sourcing.</p>
               <div class="tags"><span>Kitchen & Small Appliances</span><span>Tools & Hardware</span><span>Drinkware & Home</span></div>
-              <a class="btn btn-light" href="loopboss.html">Explore Home & Utility</a>
+              <a class="btn btn-light" href="home-utility.html">Explore Home & Utility</a>
             </div>
           </article>
           <article class="world world-life reveal" id="lifestyle">
@@ -188,9 +214,9 @@
             <div class="world-content">
               <span class="world-no">Product World 02</span>
               <h3>Accessories & Lifestyle</h3>
-              <p>Design-led bags, jewelry and accessories shaped for modern lifestyles and global audiences.</p>
+              <p>Design-led bags, jewelry and lifestyle collections.</p>
               <div class="tags"><span>Bags & Accessories</span><span>Jewelry & Accessories</span></div>
-              <div class="hero-actions"><a class="btn btn-light" href="tetchy.html">Explore TETCHY.</a><a class="btn btn-light" href="shainewi.html">Explore ShaiNewi</a></div>
+              <a class="btn btn-light" href="accessories-lifestyle.html">Explore Accessories &amp; Lifestyle</a>
             </div>
           </article>
         </div>
@@ -218,7 +244,7 @@
       <div class="shell">
         <div class="section-head">
           <div><p class="eyebrow reveal">How We Work</p><h2 class="display reveal">Discover → Source → Develop → Sell</h2></div>
-          <p class="lead reveal">A connected process from finding the right opportunity to presenting it clearly in overseas markets.</p>
+          <p class="lead reveal">From product sourcing and customization to digital sales support.</p>
         </div>
         <div class="steps">
           <article class="step reveal"><div class="step-num">01</div><h3>Discover</h3><p>We define the product, customer, market and commercial objective.</p></article>
@@ -262,13 +288,12 @@
     </section>
 
     <section id="partners">
-      <div class="partners-grid">
-        <div class="partner-image" aria-label="Lifestyle accessories"></div>
+      <div class="partners-grid shell">
         <div class="partner-copy">
           <p class="eyebrow reveal">Creators / Partners</p>
-          <h2 class="display reveal">Products grow through the right partnerships.</h2>
-          <p class="lead reveal">We work with creators, commercial partners and market operators who can bring products to the right audience with clarity and authenticity.</p>
-          <div class="hero-actions reveal"><a class="btn btn-dark" href="creators.html">Creators</a><a class="btn btn-line" href="b2b.html">Business Partners</a></div>
+          <h2 class="display reveal">A lighter way to collaborate.</h2>
+          <p class="lead reveal">For creators and commercial partners who can bring the right products to the right audiences.</p>
+          <div class="hero-actions reveal"><a class="btn btn-line" href="creators.html">Learn More</a></div>
         </div>
       </div>
     </section>
@@ -311,7 +336,7 @@
     <div class="shell">
       <div class="footer-grid">
         <div class="footer-col"><div class="footer-logo">TWR STREAM</div><p>Products, sourcing and digital sales for global markets.</p><p style="margin-top:12px">TowerStream Interactive, LLC</p></div>
-        <div class="footer-col"><h4>Product Worlds</h4><a href="#utility">Home & Utility</a><a href="#lifestyle">Accessories & Lifestyle</a><a href="loopboss.html">LOOPBOSS</a><a href="tetchy.html">TETCHY.</a><a href="shainewi.html">ShaiNewi</a></div>
+        <div class="footer-col"><h4>Product Worlds</h4><a href="home-utility.html">Home &amp; Utility</a><a href="accessories-lifestyle.html">Accessories &amp; Lifestyle</a></div>
         <div class="footer-col"><h4>Work With Us</h4><a href="#sourcing">Sourcing & OEM</a><a href="#digital">Digital Sales</a><a href="b2b.html">B2B Partners</a><a href="creators.html">Creators</a><a href="#quote">Request a Quote</a></div>
         <div class="footer-col"><h4>Information</h4><a href="blog.html">Insights</a><a href="faq.html">FAQ</a><a href="privacy.html">Privacy & Legal</a><a href="mailto:jaymen@twrstream.com">jaymen@twrstream.com</a></div>
       </div>
