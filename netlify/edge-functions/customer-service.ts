@@ -9,6 +9,13 @@ export default async (_request: Request, context: any) => {
   const title = first(/<title[^>]*>([\s\S]*?)<\/title>/i).replace(/<[^>]+>/g, "");
   const description = first(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']*)["'][^>]*>/i) || first(/<meta[^>]+content=["']([^"']*)["'][^>]+name=["']description["'][^>]*>/i);
   const canonical = first(/<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']*)["'][^>]*>/i) || first(/<link[^>]+href=["']([^"']*)["'][^>]+rel=["']canonical["'][^>]*>/i);
+  const url = new URL(_request.url);
+  const existingOgImage = first(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']*)["'][^>]*>/i) || first(/<meta[^>]+content=["']([^"']*)["'][^>]+property=["']og:image["'][^>]*>/i);
+  const firstImage = first(/<img[^>]+src=["']([^"']+)["'][^>]*>/i);
+  let shareImage = existingOgImage;
+  if (!shareImage && firstImage) {
+    try { shareImage = new URL(firstImage, url.origin).href; } catch { shareImage = ""; }
+  }
 
   const meta: string[] = [];
   if (!/property=["']og:site_name["']/i.test(html)) meta.push('<meta property="og:site_name" content="TWR STREAM">');
@@ -16,11 +23,12 @@ export default async (_request: Request, context: any) => {
   if (title && !/property=["']og:title["']/i.test(html)) meta.push(`<meta property="og:title" content="${attr(title)}">`);
   if (description && !/property=["']og:description["']/i.test(html)) meta.push(`<meta property="og:description" content="${attr(description)}">`);
   if (canonical && !/property=["']og:url["']/i.test(html)) meta.push(`<meta property="og:url" content="${attr(canonical)}">`);
-  if (!/name=["']twitter:card["']/i.test(html)) meta.push('<meta name="twitter:card" content="summary">');
+  if (shareImage && !existingOgImage) meta.push(`<meta property="og:image" content="${attr(shareImage)}">`);
+  if (!/name=["']twitter:card["']/i.test(html)) meta.push(`<meta name="twitter:card" content="${shareImage ? "summary_large_image" : "summary"}">`);
   if (title && !/name=["']twitter:title["']/i.test(html)) meta.push(`<meta name="twitter:title" content="${attr(title)}">`);
   if (description && !/name=["']twitter:description["']/i.test(html)) meta.push(`<meta name="twitter:description" content="${attr(description)}">`);
+  if (shareImage && !/name=["']twitter:image["']/i.test(html)) meta.push(`<meta name="twitter:image" content="${attr(shareImage)}">`);
 
-  const url = new URL(_request.url);
   const isHome = url.pathname === "/" || url.pathname === "/index.html";
   if (isHome && !html.includes('"@id":"https://www.twrstream.com/#organization"')) {
     const structured = {
