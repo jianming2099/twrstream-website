@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://twrstream.com/sitemap.xml
+Sitemap: https://www.twrstream.com/sitemap.xml
