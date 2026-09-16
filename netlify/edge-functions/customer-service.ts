@@ -19,6 +19,39 @@ export default async (_request: Request, context: any) => {
   if (!/name=["']twitter:card["']/i.test(html)) meta.push('<meta name="twitter:card" content="summary">');
   if (title && !/name=["']twitter:title["']/i.test(html)) meta.push(`<meta name="twitter:title" content="${attr(title)}">`);
   if (description && !/name=["']twitter:description["']/i.test(html)) meta.push(`<meta name="twitter:description" content="${attr(description)}">`);
+
+  const url = new URL(_request.url);
+  const isHome = url.pathname === "/" || url.pathname === "/index.html";
+  if (isHome && !html.includes('"@id":"https://www.twrstream.com/#organization"')) {
+    const structured = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.twrstream.com/#organization",
+          "name": "TWR STREAM",
+          "url": "https://www.twrstream.com/",
+          "sameAs": [
+            "https://www.tiktok.com/@shainewidirect",
+            "https://www.instagram.com/shainewistylestudio",
+            "https://www.facebook.com/ShaiNewiStyleStudio",
+            "https://www.youtube.com/@ShaiNewiXJURKORA101",
+            "https://www.linkedin.com/in/jaymen-henry-558a87239",
+            "https://www.pinterest.com/ShaiNewiStyleStudio"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.twrstream.com/#website",
+          "url": "https://www.twrstream.com/",
+          "name": "TWR STREAM",
+          "publisher": { "@id": "https://www.twrstream.com/#organization" }
+        }
+      ]
+    };
+    meta.push(`<script type="application/ld+json">${JSON.stringify(structured).replace(/</g, "\\u003c")}</script>`);
+  }
+
   if (meta.length && /<\/head>/i.test(html)) html = html.replace(/<\/head>/i, `${meta.join("")}\n</head>`);
 
   const scripts: string[] = [];
