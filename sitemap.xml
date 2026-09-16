@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.twrstream.com/</loc><priority>1.0</priority></url>
-  <url><loc>https://www.twrstream.com/about.html</loc><priority>0.7</priority></url>
-  <url><loc>https://www.twrstream.com/home-utility.html</loc><priority>0.9</priority></url>
-  <url><loc>https://www.twrstream.com/accessories-lifestyle.html</loc><priority>0.9</priority></url>
+  <url><loc>https://www.twrstream.com/</loc><lastmod>2026-09-16</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.twrstream.com/about.html</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.twrstream.com/home-utility.html</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.twrstream.com/accessories-lifestyle.html</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.twrstream.com/tetchy.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.twrstream.com/loopboss.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.twrstream.com/shainewi.html</loc><priority>0.8</priority></url>
-  <url><loc>https://www.twrstream.com/wholesale.html</loc><priority>0.8</priority></url>
-  <url><loc>https://www.twrstream.com/b2b.html</loc><priority>0.8</priority></url>
-  <url><loc>https://www.twrstream.com/creators.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.twrstream.com/wholesale.html</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.twrstream.com/b2b.html</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.twrstream.com/creators.html</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.twrstream.com/blog.html</loc><priority>0.7</priority></url>
   <url><loc>https://www.twrstream.com/faq.html</loc><priority>0.6</priority></url>
   <url><loc>https://www.twrstream.com/privacy.html</loc><priority>0.4</priority></url>
