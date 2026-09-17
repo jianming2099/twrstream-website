@@ -1,6 +1,3 @@
-[[plugins]]
-package = "./netlify/plugins/inject-runtime"
-
 [[headers]]
 for = "/*"
 [headers.values]
