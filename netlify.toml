@@ -1,11 +1,10 @@
-[[edge_functions]]
-function = "customer-service"
-path = "/*"
+[[plugins]]
+package = "./netlify/plugins/inject-runtime"
 
 [[headers]]
 for = "/*"
-  [headers.values]
-  X-Content-Type-Options = "nosniff"
-  X-Frame-Options = "SAMEORIGIN"
-  Referrer-Policy = "strict-origin-when-cross-origin"
-  Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+[headers.values]
+X-Content-Type-Options = "nosniff"
+Referrer-Policy = "strict-origin-when-cross-origin"
+Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+X-Frame-Options = "SAMEORIGIN"
