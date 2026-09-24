@@ -1,6 +1,6 @@
 (()=>{const hero=document.querySelector('#hero');if(!hero||hero.dataset.showcase)return;hero.dataset.showcase='1';
 const products=[
-{name:'Milk Frother',category:'Kitchen & Small Appliances',tag:'LOOPBOSS',desc:'Simple tools for a better everyday kitchen.',img:'https://www.dropbox.com/scl/fi/kvow32j6c43o9h4wao1y0/LOOPBOSS-Milk-Frother-Ready-01.png?rlkey=lx7cft2903gshof2b9k9rt2qb&raw=1',href:'kitchen-small-appliances.html'},
+{name:'Milk Frother',category:'Kitchen & Small Appliances',tag:'LOOPBOSS',desc:'Simple tools for a better everyday kitchen.',img:'assets/loopboss-frother.webp',href:'kitchen-small-appliances.html'},
 {name:'Drip Coffee Maker',category:'Kitchen & Small Appliances',tag:'LOOPBOSS',desc:'Enjoy a better cup of coffee, every day.',img:'assets/products/loopboss/kitchen/loopboss-drip-coffee-maker.webp',href:'kitchen-small-appliances.html'},
 {name:'Sunlit Garden Insulated Tumbler',category:'Drinkware & Home',tag:'LOOPBOSS',desc:'Everyday drinkware designed for daily use.',img:'https://www.dropbox.com/scl/fi/xlf1p92h04wc5p83h4svv/LOOPBOSS-Insulated-Tumbler-Sunlit-Garden.png?rlkey=lr2pzks48zyw52mlj83l7ulv5&raw=1',href:'drinkware-home.html'},
 {name:'Canvas Utility Carry Bag',category:'Bags & Accessories',tag:'TETCHY.',desc:'Practical carry solutions with a clean everyday look.',img:'https://www.dropbox.com/scl/fi/jxdnrbyd6le0qs4tvvpko/TETCHY-Product-017.png?rlkey=mbn6mkf1qur1pl4tx6jr7ihrf&raw=1',href:'bags-accessories.html'},
@@ -39,11 +39,11 @@ const css=document.createElement('style');css.textContent=`
 }`;document.head.appendChild(css);hero.classList.add('twr-showcase');
 
 hero.innerHTML='<div class="twr-wrap"><div class="twr-stage"></div><div class="twr-nav"><button class="twr-arrow prev" aria-label="Previous product">‹</button><button class="twr-arrow next" aria-label="Next product">›</button></div><div class="twr-dots"></div></div>';
-const stage=hero.querySelector('.twr-stage'),dots=hero.querySelector('.twr-dots');let start=0,timer;
+const stage=hero.querySelector('.twr-stage'),dots=hero.querySelector('.twr-dots');let start=0,timer;const cache=new Set(['assets/loopboss-frother.webp']);function warm(i){const u=products[(i+products.length)%products.length].img;if(cache.has(u))return;const im=new Image();im.decoding='async';im.src=u;cache.add(u)}
 function render(){const p=products[start];stage.innerHTML=`<article class="twr-card"><div class="twr-copy"><div class="twr-brand">${p.tag}</div><div class="twr-product">${p.name}</div><div class="twr-category">${p.category}</div><p class="twr-desc">${p.desc}</p><a class="twr-cta" href="${p.href}">Discover More&nbsp; →</a></div><img src="${p.img}" alt="${p.name}" loading="eager"></article>`;dots.innerHTML=products.map((_,i)=>`<button class="twr-dot ${i===start?'active':''}" aria-label="Show product ${i+1}" data-i="${i}"></button>`).join('')}
-function show(n){start=(n+products.length)%products.length;render()}
+function show(n){start=(n+products.length)%products.length;render();warm(start+1)}
 function play(){clearInterval(timer);if(!matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(()=>show(start+1),5200)}
 hero.querySelector('.prev').onclick=()=>{show(start-1);play()};hero.querySelector('.next').onclick=()=>{show(start+1);play()};
 dots.addEventListener('click',e=>{const b=e.target.closest('.twr-dot');if(b){show(+b.dataset.i);play()}});
 let x=0;stage.addEventListener('touchstart',e=>x=e.touches[0].clientX,{passive:true});stage.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-x;if(Math.abs(d)>45){show(start+(d<0?1:-1));play()}},{passive:true});
-render();play()})();
+render();warm(1);if('requestIdleCallback' in window)requestIdleCallback(()=>products.slice(1).forEach((_,i)=>warm(i+2)),{timeout:2500});else setTimeout(()=>products.slice(1).forEach((_,i)=>warm(i+2)),2500);play()})();
