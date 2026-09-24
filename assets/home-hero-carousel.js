@@ -2,9 +2,9 @@
 const products=[
 {name:'Milk Frother',category:'Kitchen & Small Appliances',tag:'LOOPBOSS',desc:'Simple tools for a better everyday kitchen.',img:'assets/loopboss-frother.webp',href:'kitchen-small-appliances.html'},
 {name:'Drip Coffee Maker',category:'Kitchen & Small Appliances',tag:'LOOPBOSS',desc:'Enjoy a better cup of coffee, every day.',img:'assets/products/loopboss/kitchen/loopboss-drip-coffee-maker.webp',href:'kitchen-small-appliances.html'},
-{name:'Sunlit Garden Insulated Tumbler',category:'Drinkware & Home',tag:'LOOPBOSS',desc:'Everyday drinkware designed for daily use.',img:'https://www.dropbox.com/scl/fi/xlf1p92h04wc5p83h4svv/LOOPBOSS-Insulated-Tumbler-Sunlit-Garden.png?rlkey=lr2pzks48zyw52mlj83l7ulv5&raw=1',href:'drinkware-home.html'},
-{name:'Canvas Utility Carry Bag',category:'Bags & Accessories',tag:'TETCHY.',desc:'Practical carry solutions with a clean everyday look.',img:'https://www.dropbox.com/scl/fi/jxdnrbyd6le0qs4tvvpko/TETCHY-Product-017.png?rlkey=mbn6mkf1qur1pl4tx6jr7ihrf&raw=1',href:'bags-accessories.html'},
-{name:'Floral Lace Headband',category:'Jewelry & Accessories',tag:'ShaiNewi',desc:'Simple accessories with a softer, understated character.',img:'https://www.dropbox.com/scl/fi/xuj2av0a8siv7tq0z9094/ShaiNewi-Floral-Lace-Headband-Product-Display.png?rlkey=k1dnlu5vf9o61wvyllitptt7r&raw=1',href:'jewelry-accessories.html'}];
+{name:'Sunlit Garden Insulated Tumbler',category:'Drinkware & Home',tag:'LOOPBOSS',desc:'Everyday drinkware designed for daily use.',img:'assets/products/loopboss/drinkware/loopboss-navy-sand.webp',href:'drinkware-home.html'},
+{name:'Canvas Utility Carry Bag',category:'Bags & Accessories',tag:'TETCHY.',desc:'Practical carry solutions with a clean everyday look.',img:'assets/tetchy-utility-duffle.webp',href:'bags-accessories.html'},
+{name:'Floral Lace Headband',category:'Jewelry & Accessories',tag:'ShaiNewi',desc:'Simple accessories with a softer, understated character.',img:'assets/shainewi-necklace-model.webp',href:'jewelry-accessories.html'}];
 
 const css=document.createElement('style');css.textContent=`
 #hero.twr-showcase{min-height:auto;padding:72px 0 34px;background:#f7f6f2;color:#171717}
