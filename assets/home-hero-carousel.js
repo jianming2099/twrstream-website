@@ -1,7 +1,7 @@
 (()=>{const hero=document.querySelector('#hero');if(!hero||hero.dataset.showcase)return;hero.dataset.showcase='1';
 const products=[
 {name:'Milk Frother',category:'Kitchen & Small Appliances',img:'https://www.dropbox.com/scl/fi/kvow32j6c43o9h4wao1y0/LOOPBOSS-Milk-Frother-Ready-01.png?rlkey=lx7cft2903gshof2b9k9rt2qb&raw=1',href:'kitchen-small-appliances.html'},
-{name:'K501',category:'Tools & Hardware',img:'https://www.dropbox.com/scl/fi/mfzdy2jrs2p1pkd4iyclg/LOOPBOSS-K501.png?rlkey=7xtpkx80q0n4qezx9g0ya0pvx&raw=1',href:'tools-hardware.html'},
+{name:'Drip Coffee Maker',category:'Kitchen & Small Appliances',img:'assets/products/loopboss/kitchen/loopboss-drip-coffee-maker.webp',href:'kitchen-small-appliances.html'},
 {name:'Sunlit Garden Insulated Tumbler',category:'Drinkware & Home',img:'https://www.dropbox.com/scl/fi/xlf1p92h04wc5p83h4svv/LOOPBOSS-Insulated-Tumbler-Sunlit-Garden.png?rlkey=lr2pzks48zyw52mlj83l7ulv5&raw=1',href:'drinkware-home.html'},
 {name:'Canvas Utility Carry Bag',category:'Bags & Accessories',img:'https://www.dropbox.com/scl/fi/jxdnrbyd6le0qs4tvvpko/TETCHY-Product-017.png?rlkey=mbn6mkf1qur1pl4tx6jr7ihrf&raw=1',href:'bags-accessories.html'},
 {name:'Floral Lace Headband',category:'Jewelry & Accessories',img:'https://www.dropbox.com/scl/fi/xuj2av0a8siv7tq0z9094/ShaiNewi-Floral-Lace-Headband-Product-Display.png?rlkey=k1dnlu5vf9o61wvyllitptt7r&raw=1',href:'jewelry-accessories.html'}];
