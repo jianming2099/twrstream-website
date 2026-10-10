@@ -1,10 +1,8 @@
 (()=>{const hero=document.querySelector('#hero');if(!hero||hero.dataset.showcase)return;hero.dataset.showcase='1';
 const products=[
-{name:'Milk Frother',category:'Kitchen & Small Appliances',tag:'LOOPBOSS',desc:'Simple tools for a better everyday kitchen.',img:'assets/loopboss-frother.webp',href:'kitchen-small-appliances.html'},
-{name:'Drip Coffee Maker',category:'Kitchen & Small Appliances',tag:'LOOPBOSS',desc:'Enjoy a better cup of coffee, every day.',img:'assets/products/loopboss/kitchen/loopboss-drip-coffee-maker.webp',href:'kitchen-small-appliances.html'},
-{name:'Navy & Sand Insulated Tumbler',category:'Drinkware & Home',tag:'LOOPBOSS',desc:'Everyday drinkware designed for daily use.',img:'assets/products/loopboss/drinkware/loopboss-navy-sand.webp',href:'drinkware-home.html'},
-{name:'Convertible Canvas Duffel',category:'Bags & Accessories',tag:'TETCHY.',desc:'Practical carry solutions with a clean everyday look.',img:'assets/products/tetchy/bags/tetchy-convertible-canvas-duffel-bag.webp',href:'bags-accessories.html'},
-{name:'Statement Necklace',category:'Jewelry & Accessories',tag:'ShaiNewi',desc:'A statement necklace for distinctive everyday styling.',img:'assets/shainewi-necklace-model.webp',href:'jewelry-accessories.html'}];
+{name:'Statement Necklaces',category:'Jewelry & Accessories',tag:'TWR STREAM · Jewelry',desc:'Explore necklace collections for wholesale selection and private-label inquiries.',img:'assets/shainewi-necklace-model.webp',href:'jewelry-accessories.html'},
+{name:'Earrings Collection',category:'Jewelry & Accessories',tag:'TWR STREAM · Jewelry',desc:'Discover earring styles and ask about samples, packaging and branding options.',img:'assets/shainewi-earrings-model.webp',href:'jewelry-accessories.html'},
+{name:'Bracelets & Details',category:'Jewelry & Accessories',tag:'TWR STREAM · Jewelry',desc:'Browse bracelet designs and discuss product requirements for your market.',img:'/assets/products/hosted/shainewi-bohemian-woven-charm-bracelet-hand-display.webp',href:'shainewi-collection.html'}];
 
 const css=document.createElement('style');css.textContent=`
 #hero.twr-showcase{display:block;min-height:auto;padding:112px 0 34px;background:#f7f6f2;color:#171717}#hero.twr-showcase>.shell{margin-bottom:38px}#hero.twr-showcase .hero-inner{max-width:920px}#hero.twr-showcase h1{font-size:clamp(2.35rem,4.8vw,4.2rem);line-height:1.08;margin:8px 0 18px}#hero.twr-showcase .lead{color:#5f5d58;max-width:800px}#hero.twr-showcase .btn-light{color:#171717}#hero.twr-showcase .hero-actions .btn:first-child{background:#171717;color:#fff}#hero.twr-showcase .twr-stage{height:clamp(390px,48vh,510px)}
@@ -39,7 +37,7 @@ const css=document.createElement('style');css.textContent=`
 }`;document.head.appendChild(css);hero.classList.add('twr-showcase');
 
 const introduction=hero.querySelector('.shell').outerHTML;hero.innerHTML=introduction+'<div class="twr-wrap"><div class="twr-stage"></div><div class="twr-nav"><button class="twr-arrow prev" aria-label="Previous product">‹</button><button class="twr-arrow next" aria-label="Next product">›</button></div><div class="twr-dots"></div></div>';
-const stage=hero.querySelector('.twr-stage'),dots=hero.querySelector('.twr-dots');let start=0,timer;const cache=new Set(['assets/loopboss-frother.webp']);function warm(i){const u=products[(i+products.length)%products.length].img;if(cache.has(u))return;const im=new Image();im.decoding='async';im.src=u;cache.add(u)}
+const stage=hero.querySelector('.twr-stage'),dots=hero.querySelector('.twr-dots');let start=0,timer;const cache=new Set([products[0].img]);function warm(i){const u=products[(i+products.length)%products.length].img;if(cache.has(u))return;const im=new Image();im.decoding='async';im.src=u;cache.add(u)}
 function render(){const p=products[start];stage.innerHTML=`<article class="twr-card"><div class="twr-copy"><div class="twr-brand">${p.tag}</div><div class="twr-product">${p.name}</div><div class="twr-category">${p.category}</div><p class="twr-desc">${p.desc}</p><a class="twr-cta" href="${p.href}">View Collection</a></div><img src="${p.img}" alt="${p.name}" loading="eager"></article>`;dots.innerHTML=products.map((_,i)=>`<button class="twr-dot ${i===start?'active':''}" aria-label="Show product ${i+1}" data-i="${i}"></button>`).join('')}
 function show(n){start=(n+products.length)%products.length;render();warm(start+1)}
 function play(){clearInterval(timer);if(!matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(()=>show(start+1),5200)}
