@@ -237,7 +237,7 @@ window.addEventListener('DOMContentLoaded',function(){
     var btn=f.querySelector('[type="submit"]'),label=btn?btn.textContent:'';
     if(btn){btn.disabled=true;btn.textContent='Submitting…';}
     if(fallback)fallback.hidden=true;
-    fetch(f.getAttribute('action')||location.pathname,{
+    fetch(location.pathname,{
       method:'POST',
       headers:{'Content-Type':'application/x-www-form-urlencoded','Accept':'text/html'},
       body:new URLSearchParams(new FormData(f)).toString()
