@@ -97,9 +97,9 @@ footer{background:#0b0b0b;color:rgba(255,255,255,.55);padding:52px 0}
 </style></head>
 <body>
 <header><div class="nav shell"><a class="logo" href="index.html">TWR STREAM</a>
-<ul class="nav-links"><li><a href="home-utility.html">Home &amp; Utility</a></li><li><a href="accessories-lifestyle.html">Accessories &amp; Lifestyle</a></li><li><a href="sourcing-oem.html">Sourcing &amp; OEM</a></li><li><a href="digital-sales.html">Digital Sales</a></li><li><a href="creators.html">Creators</a></li><li><a href="blog.html">Insights</a></li><li><a href="about.html">About</a></li><li><a href="request-quote.html">Contact</a></li></ul>
+<ul class="nav-links"><li><a href="home-utility.html">Home &amp; Utility</a></li><li><a href="accessories-lifestyle.html">Accessories &amp; Lifestyle</a></li><li><a href="shainewi-collection.html">ShaiNewi Collection</a></li><li><a href="sourcing-oem.html">Sourcing &amp; OEM</a></li><li><a href="digital-sales.html">Digital Sales</a></li><li><a href="creators.html">Creators</a></li><li><a href="blog.html">Insights</a></li><li><a href="about.html">About</a></li><li><a href="request-quote.html">Contact</a></li></ul>
 <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button></div></header>
-<nav class="mobile-menu" id="mobileMenu"><a href="home-utility.html">Home &amp; Utility</a><a href="accessories-lifestyle.html">Accessories &amp; Lifestyle</a><a href="jewelry-accessories.html">↳ Jewelry &amp; Accessories</a><a href="jewelry-oem-odm.html">↳ Jewelry OEM/ODM</a><a href="sourcing-oem.html">Sourcing &amp; OEM</a><a href="digital-sales.html">Digital Sales</a><a href="creators.html">Creators</a><a href="blog.html">Insights</a><a href="about.html">About</a><a href="request-quote.html">Contact</a></nav>
+<nav class="mobile-menu" id="mobileMenu"><a href="home-utility.html">Home &amp; Utility</a><a href="accessories-lifestyle.html">Accessories &amp; Lifestyle</a><a href="jewelry-accessories.html">↳ Jewelry &amp; Accessories</a><a href="jewelry-oem-odm.html">↳ Jewelry OEM/ODM</a><a href="shainewi-collection.html">↳ ShaiNewi Collection</a><a href="sourcing-oem.html">Sourcing &amp; OEM</a><a href="digital-sales.html">Digital Sales</a><a href="creators.html">Creators</a><a href="blog.html">Insights</a><a href="about.html">About</a><a href="request-quote.html">Contact</a></nav>
 <main>
 <section class="hero"><div class="shell hero-grid"><div>
 <p class="eyebrow">B2B Jewelry Manufacturing &amp; Sourcing</p>
@@ -237,7 +237,7 @@ window.addEventListener('DOMContentLoaded',function(){
     var btn=f.querySelector('[type="submit"]'),label=btn?btn.textContent:'';
     if(btn){btn.disabled=true;btn.textContent='Submitting…';}
     if(fallback)fallback.hidden=true;
-    fetch(f.getAttribute('action')||location.pathname,{
+    fetch(location.pathname,{
       method:'POST',
       headers:{'Content-Type':'application/x-www-form-urlencoded','Accept':'text/html'},
       body:new URLSearchParams(new FormData(f)).toString()
