@@ -24,9 +24,9 @@ export default async (_request: Request, context: any) => {
   if(shareImage&&!/name=["']twitter:image["']/i.test(html))meta.push(`<meta name="twitter:image" content="${attr(shareImage)}">`);
   if(isHome&&!html.includes('"@id":"https://www.twrstream.com/#organization"')){const structured={"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.twrstream.com/#organization","name":"TWR STREAM","url":"https://www.twrstream.com/","sameAs":["https://www.tiktok.com/@shainewidirect","https://www.instagram.com/shainewistylestudio","https://www.facebook.com/ShaiNewiStyleStudio","https://www.youtube.com/@ShaiNewiXJURKORA101","https://www.linkedin.com/in/jaymen-henry-558a87239","https://www.pinterest.com/ShaiNewiStyleStudio"]},{"@type":"WebSite","@id":"https://www.twrstream.com/#website","url":"https://www.twrstream.com/","name":"TWR STREAM","publisher":{"@id":"https://www.twrstream.com/#organization"}}]};meta.push(`<script type="application/ld+json">${JSON.stringify(structured).replace(/</g,"\\u003c")}</script>`)}
   if(meta.length&&/<\/head>/i.test(html))html=html.replace(/<\/head>/i,`${meta.join("")}\n</head>`);
-  // GA4 site-wide (measurement ID G-KBMY59VPJH). Skips pages that already include it.
-  if(!html.includes("G-KBMY59VPJH")&&/<\/head>/i.test(html)){
-    html=html.replace(/<\/head>/i,`<script async src="https://www.googletagmanager.com/gtag/js?id=G-KBMY59VPJH"></script>\n<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config","G-KBMY59VPJH");</script>\n</head>`);
+  // GA4 site-wide (measurement ID G-74NLCJFQVC). Skips pages that already include it.
+  if(!html.includes("G-74NLCJFQVC")&&/<\/head>/i.test(html)){
+    html=html.replace(/<\/head>/i,`<script async src="https://www.googletagmanager.com/gtag/js?id=G-74NLCJFQVC"></script>\n<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config","G-74NLCJFQVC");</script>\n</head>`);
   }
   const scripts:string[]=[];
   if(!html.includes("assets/customer-service.js"))scripts.push('<script src="/assets/customer-service.js" defer></script>');
