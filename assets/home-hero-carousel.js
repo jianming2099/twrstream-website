@@ -1,8 +1,9 @@
 (()=>{const hero=document.querySelector('#hero');if(!hero||hero.dataset.showcase)return;hero.dataset.showcase='1';
 const products=[
-{name:'Statement Necklaces',category:'Jewelry & Accessories',tag:'TWR STREAM · Jewelry',desc:'Explore necklace collections for wholesale selection and private-label inquiries.',img:'assets/shainewi-necklace-model.webp',href:'jewelry-accessories.html'},
+{name:'Statement Necklaces',category:'Jewelry & Accessories',tag:'TWR STREAM · Jewelry',desc:'Explore necklace collections for wholesale selection and private-label inquiries.',img:'assets/shainewi-pilot-p01-editorial.webp',href:'jewelry-accessories.html'},
 {name:'Earrings Collection',category:'Jewelry & Accessories',tag:'TWR STREAM · Jewelry',desc:'Discover earring styles and ask about samples, packaging and branding options.',img:'assets/shainewi-earrings-model.webp',href:'jewelry-accessories.html'},
-{name:'Bracelets & Details',category:'Jewelry & Accessories',tag:'TWR STREAM · Jewelry',desc:'Browse bracelet designs and discuss product requirements for your market.',img:'/assets/products/hosted/shainewi-bohemian-woven-charm-bracelet-hand-display.webp',href:'shainewi-collection.html'}];
+{name:'Bracelets & Details',category:'Jewelry & Accessories',tag:'TWR STREAM · Jewelry',desc:'Browse bracelet designs and discuss product requirements for your market.',img:'assets/shainewi-pilot-p02-model-a.webp',href:'shainewi-collection.html'},
+{name:"Men's Bracelets",category:'Jewelry & Accessories',tag:'TWR STREAM · Jewelry',desc:'Braided leather bracelet styles for men\'s collections and wholesale programs.',img:'assets/shainewi-pilot-p04-model-b.webp',href:'shainewi-collection.html'}];
 
 const css=document.createElement('style');css.textContent=`
 #hero.twr-showcase{display:block;min-height:auto;padding:112px 0 34px;background:#f7f6f2;color:#171717}#hero.twr-showcase>.shell{margin-bottom:38px}#hero.twr-showcase .hero-inner{max-width:920px}#hero.twr-showcase h1{font-size:clamp(2.35rem,4.8vw,4.2rem);line-height:1.08;margin:8px 0 18px}#hero.twr-showcase .lead{color:#5f5d58;max-width:800px}#hero.twr-showcase .btn-light{color:#171717}#hero.twr-showcase .hero-actions .btn:first-child{background:#171717;color:#fff}#hero.twr-showcase .twr-stage{height:auto}
