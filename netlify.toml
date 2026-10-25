@@ -21,3 +21,8 @@ X-Frame-Options = "SAMEORIGIN"
 [[edge_functions]]
 function = "customer-service"
 path = "/*"
+
+[[redirects]]
+from = "/products/tetchy-editorial-tote.html"
+to = "/products/tetchy-canvas-utility-carry-bag.html"
+status = 301
