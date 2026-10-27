@@ -31,7 +31,6 @@ export default async (_request: Request, context: any) => {
   const scripts:string[]=[];
   if(!html.includes("assets/customer-service.js"))scripts.push('<script src="/assets/customer-service.js" defer></script>');
   if(!html.includes("assets/site-footer-social.js"))scripts.push('<script src="/assets/site-footer-social.js" defer></script>');
-  if(isHome&&!html.includes("assets/home-hero-carousel.js"))scripts.push('<script src="/assets/home-hero-carousel.js" defer></script>');
   if(scripts.length&&/<\/body>/i.test(html))html=html.replace(/<\/body>/i,`${scripts.join("")}\n</body>`);
   const headers=new Headers(response.headers);headers.delete("content-length");return new Response(html,{status:response.status,statusText:response.statusText,headers});
 };
