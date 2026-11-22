@@ -1,10 +1,4 @@
 [[redirects]]
-from = "/contact.html"
-to = "/request-quote.html"
-status = 301
-force = true
-
-[[redirects]]
 from = "/insights.html"
 to = "/blog.html"
 status = 301
