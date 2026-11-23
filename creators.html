@@ -46,12 +46,12 @@
   .nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}
   .logo{font-family:var(--serif);font-weight:600;letter-spacing:.08em}
   .links{display:flex;gap:20px}
-  .links a{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+  .links a,.links .current{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600}
   .menu{display:none;border:0;background:none;width:34px;height:34px;padding:6px;cursor:pointer}
   .menu span{display:block;height:1.5px;background:var(--ink);margin:5px 0}
   .mobile{display:none;position:fixed;z-index:29;top:70px;left:0;right:0;background:var(--paper);padding:14px var(--pad) 26px;border-bottom:1px solid var(--line)}
   .mobile.open{display:block}
-  .mobile a{display:block;padding:11px 0;border-bottom:1px solid var(--line);font-size:.8rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase}
+  .mobile a,.mobile .current{display:block;padding:11px 0;border-bottom:1px solid var(--line);font-size:.8rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase}
   footer{background:#090909;color:rgba(255,255,255,.55);padding:40px 0}
   .footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   .footer a{margin-left:16px;font-size:.75rem}
@@ -155,8 +155,8 @@
 </style>
 </head>
 <body>
-<header><div class="nav shell"><a class="logo" href="index.html"><img class="logo-mark" src="assets/twrstream-logo.png" alt="TWR STREAM" style="display:inline-block;width:34px;height:34px;border-radius:50%;vertical-align:middle;margin-right:10px">TWR STREAM</a><nav class="links"><a href="home-utility.html">Home &amp; Utility</a><a href="accessories-lifestyle.html">Accessories &amp; Lifestyle</a><a href="sourcing-oem.html">Sourcing &amp; OEM</a><a href="digital-sales.html">Digital Sales</a><a aria-current="page">Creators</a><a href="blog.html">Insights</a><a href="about.html">About</a><a href="https://shop.twrstream.com">Shop</a><a href="contact.html">Contact</a></nav><button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div></header>
-<nav class="mobile" id="mobileMenu"><a href="index.html">Home</a><a href="home-utility.html">Home &amp; Utility</a><a href="accessories-lifestyle.html">Accessories &amp; Lifestyle</a><a href="sourcing-oem.html">Sourcing &amp; OEM</a><a href="supply-chain.html">Supply Chain &amp; Packaging</a><a href="digital-sales.html">Digital Sales</a><a aria-current="page">Creators</a><a href="blog.html">Insights</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+<header><div class="nav shell"><a class="logo" href="index.html"><img class="logo-mark" src="assets/twrstream-logo.png" alt="TWR STREAM" style="display:inline-block;width:34px;height:34px;border-radius:50%;vertical-align:middle;margin-right:10px">TWR STREAM</a><nav class="links"><a href="home-utility.html">Home &amp; Utility</a><a href="accessories-lifestyle.html">Accessories &amp; Lifestyle</a><a href="sourcing-oem.html">Sourcing &amp; OEM</a><a href="digital-sales.html">Digital Sales</a><span class="current" aria-current="page">Creators</span><a href="blog.html">Insights</a><a href="about.html">About</a><a href="https://shop.twrstream.com">Shop</a><a href="contact.html">Contact</a></nav><button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div></header>
+<nav class="mobile" id="mobileMenu"><a href="index.html">Home</a><a href="home-utility.html">Home &amp; Utility</a><a href="accessories-lifestyle.html">Accessories &amp; Lifestyle</a><a href="sourcing-oem.html">Sourcing &amp; OEM</a><a href="supply-chain.html">Supply Chain &amp; Packaging</a><a href="digital-sales.html">Digital Sales</a><span class="current" aria-current="page">Creators</span><a href="blog.html">Insights</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
 
 <main>
   <!-- HERO -->
