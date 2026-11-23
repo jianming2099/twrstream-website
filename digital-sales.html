@@ -31,9 +31,14 @@
   .site-header .nav{display:flex;justify-content:space-between;align-items:center;gap:20px}
   .site-header .nav div{display:flex;gap:18px;flex-wrap:wrap;font-size:11px;text-transform:uppercase;letter-spacing:.04em}
   .site-header a,.site-header .current{text-decoration:none;font-weight:600}
+  .menu{display:none;border:0;background:none;width:34px;height:34px;padding:6px;cursor:pointer}
+  .menu span{display:block;height:1.5px;background:var(--ink);margin:5px 0}
+  .mobile{display:none;background:#faf9f6;padding:14px 20px 26px;border-bottom:1px solid var(--line)}
+  .mobile.open{display:block}
+  .mobile a,.mobile .current{display:block;padding:11px 0;border-bottom:1px solid var(--line);font-size:.8rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;text-decoration:none}
   .site-footer{background:#111;color:#999;padding:34px 0;font-size:13px}
   .site-footer a{margin-right:16px;text-decoration:none}
-  @media(max-width:760px){.site-header .nav div{display:none}}
+  @media(max-width:760px){.site-header .nav div{display:none}.menu{display:block}}
 
   .btn{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:700;font-size:14px;padding:12px 22px;border-radius:999px;border:1px solid var(--ink);transition:.2s;white-space:nowrap}
   .btn:hover{background:var(--gold);border-color:var(--gold);color:#fff}
@@ -162,7 +167,8 @@
 </head>
 <body>
 
-<header class="site-header"><div class="shell nav"><a href="index.html"><strong><img class="logo-mark" src="assets/twrstream-logo.png" alt="TWR STREAM" style="display:inline-block;width:34px;height:34px;border-radius:50%;vertical-align:middle;margin-right:10px">TWR STREAM</strong></a><div><a href="home-utility.html">Home &amp; Utility</a><a href="accessories-lifestyle.html">Accessories &amp; Lifestyle</a><a href="sourcing-oem.html">Sourcing &amp; OEM</a><span class="current" aria-current="page">Digital Sales</span><a href="creators.html">Creators</a><a href="blog.html">Insights</a><a href="about.html">About</a><a href="https://shop.twrstream.com">Shop</a><a href="contact.html">Contact</a></div></div></header>
+<header class="site-header"><div class="shell nav"><a href="index.html"><strong><img class="logo-mark" src="assets/twrstream-logo.png" alt="TWR STREAM" style="display:inline-block;width:34px;height:34px;border-radius:50%;vertical-align:middle;margin-right:10px">TWR STREAM</strong></a><div><a href="home-utility.html">Home &amp; Utility</a><a href="accessories-lifestyle.html">Accessories &amp; Lifestyle</a><a href="sourcing-oem.html">Sourcing &amp; OEM</a><span class="current" aria-current="page">Digital Sales</span><a href="creators.html">Creators</a><a href="blog.html">Insights</a><a href="about.html">About</a><a href="https://shop.twrstream.com">Shop</a><a href="contact.html">Contact</a></div><button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div></header>
+<nav class="mobile" id="mobileMenu"><a href="index.html">Home</a><a href="home-utility.html">Home &amp; Utility</a><a href="accessories-lifestyle.html">Accessories &amp; Lifestyle</a><a href="sourcing-oem.html">Sourcing &amp; OEM</a><a href="supply-chain.html">Supply Chain &amp; Packaging</a><span class="current" aria-current="page">Digital Sales</span><a href="creators.html">Creators</a><a href="blog.html">Insights</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
 
 <main>
 <!-- HERO -->
@@ -318,5 +324,6 @@
 
 <footer class="site-footer"><div class="shell"><a href="sourcing-oem.html">Sourcing &amp; OEM</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="cookie-policy.html">Cookies</a><a href="https://shop.twrstream.com">Shop</a><a href="contact.html">Contact</a></div></footer>
 <script src="/assets/inquiry-list.js?v=20261008" defer></script>
+<script>const b=document.getElementById('menuBtn'),m=document.getElementById('mobileMenu');b.addEventListener('click',()=>{const o=m.classList.toggle('open');b.setAttribute('aria-expanded',String(o))});m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{m.classList.remove('open');b.setAttribute('aria-expanded','false')}));</script>
 </body>
 </html>
